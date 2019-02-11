@@ -1,12 +1,13 @@
 ---
 layout: full-width
 title: blog
+pagination:
+  enabled: true
 # Note that this index page uses a full-width layout!
 ---
 
-<h1 class="content-listing-header sans">Articles</h1>
 <ul class="content-listing ">
-  {% for post in site.posts %}
+  {% for post in paginator.posts %}
   <li class="listing post-content">
     <a href="{{ post.url | prepend: site.baseurl }}">
       <h3 class="contrast">{{ post.title }}</h3>
@@ -17,3 +18,19 @@ title: blog
   </li>
   {% endfor %}
 </ul>
+
+
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+  {% if paginator.previous_page %}
+  <li class="previous">
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+  </li>
+  {% endif %}
+  {% if paginator.next_page %}
+  <li class="next">
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+  </li>
+  {% endif %}
+</ul>
+{% endif %}

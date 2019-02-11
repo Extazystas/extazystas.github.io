@@ -1,15 +1,12 @@
 <footer>
   <hr class="slender">
   <ul class="footer-links">
-    <li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    
-    {% for entry in site.data.social %}
-      <li>
-        <a href="{{ entry.link }}"><span class="{{ entry.icon }}"></span></a>
-      </li>
-    {% endfor %}  
+    <li><a href="mailto:extazystas@gmail.com" target="_blank"><i class="far fa-envelope"></i></a></li>
+    <li><a href="tg://resolve?domain=extazystas" target="_blank"><i class="fab fa-telegram"></i></a></li>
+    <li><a href="https://www.linkedin.com/in/stanislav-knyazev/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+    <li><a href="https://github.com/Extazystas" target="_blank"><i class="fab fa-github"></i></a></li>
   </ul>
 <div class="credits">
-<span>&copy; {{ site.time | date: '%Y' }} &nbsp;&nbsp;{{site.author | upcase }}</span></br> <br>
-<span>This site created with the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme for {{site.subtitle}} </a> in <a href="//jekyllrb.com">Jekyll</a>.</span> 
-</div>  
+<span>&copy; {{ site.time | date: '%Y' }} &nbsp;&nbsp;{{site.author | upcase }}</span>
+</div>
 </footer>
