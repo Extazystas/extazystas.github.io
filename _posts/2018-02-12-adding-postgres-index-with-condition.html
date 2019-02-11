@@ -1,0 +1,52 @@
+---
+layout: post
+status: publish
+published: true
+title: Adding postgres index with condition.
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 424
+wordpress_url: http://extazystas.ru/?p=424
+date: '2018-02-12 13:21:43 +0300'
+date_gmt: '2018-02-12 11:21:43 +0300'
+categories:
+- RoR
+- postgresql
+tags: []
+comments: []
+---
+<p>For example, If you need only 1 admin on each project.</p>
+<pre>
+class AddUsers < ActiveRecord::Migration[5.1]
+  def change
+	create_table :users do |t|
+      t.integer :project_id, null: false
+      t.string :name, null: false
+      t.integer :role, null: false
+
+      t.timestamps
+    end
+
+    reversible do |direction|
+	  direction.up do
+        # Partial unique index
+        execute <<-SQL
+          CREATE UNIQUE INDEX unique_user_role_in_project ON users (project_id, role) WHERE role = 'admin';
+        SQL
+      end
+
+      direction.down do
+        # Remove unique index
+        execute <<-SQL
+          DROP INDEX IF EXISTS unique_user_role_in_project;
+        SQL
+      end
+    end
+  end
+end
+</pre>

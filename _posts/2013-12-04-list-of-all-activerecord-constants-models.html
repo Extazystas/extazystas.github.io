@@ -1,0 +1,25 @@
+---
+layout: post
+status: publish
+published: true
+title: List of all ActiveRecord constants (models)
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 299
+wordpress_url: http://extazystas.ru/?p=299
+date: '2013-12-04 13:50:06 +0300'
+date_gmt: '2013-12-04 11:50:06 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<p><strong>If you wanna see list of all your models in your rails app, run the next command in rails console:</strong></p>
+<pre>
+> ActiveRecord::Base.send(:subclasses).map(&:name)
+</pre>

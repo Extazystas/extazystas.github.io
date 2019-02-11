@@ -1,0 +1,127 @@
+---
+layout: post
+status: publish
+published: true
+title: Preparing Rails server on clear Ubuntu 12.04 (RVM, nginx, passenger, postgres)
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 254
+wordpress_url: http://extazystas.ru/?p=254
+date: '2013-03-07 11:05:54 +0300'
+date_gmt: '2013-03-07 09:05:54 +0300'
+categories:
+- RoR
+- ubuntu
+tags: []
+comments:
+- id: 140
+  author: пх
+  author_email: ph@yandex.ru
+  author_url: ''
+  date: '2013-06-28 10:37:30 +0300'
+  date_gmt: '2013-06-28 08:37:30 +0300'
+  content: А можно подружить пассанджер с установленным nginx из репозитория? А то
+    ставить отдельно как-то не то
+- id: 141
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2013-06-28 14:31:56 +0300'
+  date_gmt: '2013-06-28 12:31:56 +0300'
+  content: |-
+    Можно. Но в моем мануале использутеся просто модуль phusion passenger.
+    Вот тут можно посмотреть простой ответ - http://stackoverflow.com/questions/12883980/setting-up-nginx-and-passenger-on-ubuntu-12-04-for-rails-3-2-8-environment
+    а тут http://www.modrails.com/documentation/Users%20guide%20Nginx.html - документацию по настройке nginx + passenger
+---
+<p>Источник <a href="https://www.digitalocean.com/community/articles/how-to-install-rails-and-nginx-with-passenger-on-ubuntu">здесь</a>. + Моё дополнение</p>
+<h5 style="color: #591b14;">1 шаг. Ставим RVM</h5>
+<p><strong>Если кто-то предпочитает rbenv - то о его установке можно посмотреть у <a href="http://railscasts.com/episodes/335-deploying-to-a-vps">Ryanb</a></strong></p>
+<p>Заходим на сервер через ssh, апдейтим всё:</p>
+<pre>sudo apt-get update</pre>
+<p>Ставим саму RVM:</p>
+<pre>curl -L get.rvm.io | bash -s stable</pre>
+<p>Загружаем RVM</p>
+<pre>source ~/.rvm/scripts/rvm (or source /etc/profile.d/rvm.sh)</pre>
+<h5 style="color: #591b14;">2 шаг. Ставим Ruby</h5>
+<p><!--more--><br />
+Теперь посмотрим какие зависимости нужны RVM для работы</p>
+<pre>rvm requirements</pre>
+<p>Увидим команду, необходимую для установки Ruby, копируем ее, получится что-то вроде:</p>
+<pre>rvmsudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion</pre>
+<p>Устанавливаем ruby 1.9.3:</p>
+<pre>rvm install 1.9.3</pre>
+<p>Указываем какую версию руби юзать глобально:</p>
+<pre>rvm use 1.9.3 --default</pre>
+<h5 style="color: #591b14;">3 шаг. Ставим rubygems и нужные нам гемы</h5>
+<pre>rvm rubygems current
+gem install rails
+gem install passenger</pre>
+<p>Процесс может занять некоторое время.</p>
+<h5 style="color: #591b14;">4 Шаг. Ставим nginx, который свяжется с passenger'ом (/opt/nginx)</h5>
+<pre>rvmsudo passenger-install-nginx-module</pre>
+<p>Во время установки будут проверены зависимости и даны команды для установки недостающих.</p>
+<h5 style="color: #591b14;">5 шаг. Запускаем nginx</h5>
+<pre>sudo service nginx start</pre>
+<p>Если на этом шаге будет ошибка вида "unknown service nginx", то нужно установить необходимые скрипты для запуска движка:</p>
+<pre># Download nginx startup script
+wget -O init-deb.sh  https://www.linode.com/docs/assets/660-init-deb.sh 
+
+# Move the script to the init.d directory &amp; make executable
+sudo mv init-deb.sh /etc/init.d/nginx
+sudo chmod +x /etc/init.d/nginx
+
+# Add nginx to the system startup
+sudo /usr/sbin/update-rc.d -f nginx defaults</pre>
+<p>Теперь можно юзать команды вида:</p>
+<pre>sudo service nginx stop
+sudo service nginx start
+sudo service nginx restart
+sudo service nginx reload</pre>
+<h5 style="color: #591b14;">6 шаг. Настройка конфига Nginx</h5>
+<pre>sudo nano /opt/nginx/conf/nginx.conf</pre>
+<p>Здесь нужно указать путь к приложению (которое мы создадим на след шаге)</p>
+<pre>Пример моей настройки на сервере:
+server {
+        listen       80;
+        server_name  localhost;
+        passenger_enabled on;
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+            root   /home/USER_NAME/APP_NAME/public;
+           # index  index.html index.htm;
+}</pre>
+<h5 style="color: #591b14;">7 шаг. Создание и запуск Rails приложения</h5>
+<p>Перед тем, как создать rails-приложение, нужно установить node.js</p>
+<pre>sudo apt-get install nodejs</pre>
+<p>Всё готово, переходим в корневую директорию и создаем rails-приложение (название должно совпадать с названием в nginx.conf)</p>
+<pre>cd
+rails new APP_NAME</pre>
+<h5>Перезапускаем Nginx и наслаждаемся результатом</h5>
+<pre>sudo services nginx restart</pre>
+<h5 style="color: #591b14;">8 шаг. Установка postgresql вместо дефолтной sqlite3</h5>
+<p>Устанавливаем postgresql На сервер, создаем бд и пользователя:</p>
+<pre>sudo apt-get install python-software-properties
+add-apt-repository ppa:pitti/postgresql
+apt-get -y update
+apt-get -y install postgresql libpq-dev
+sudo -u postgres psql
+# \password
+вводим 2 раза пароль для главного админа
+затем создаем нового юзера для бд
+# create user USER_NAME with password 'secret';
+# create database app_name_production owner USER_NAME;
+вместо (USER_NAME) нужно указать имя нужного пользователя
+# \q</pre>
+<p>Затем, указываем в нашем приложении в database.yml созданного пользователя и имя бд.<br />
+БД можно также создать из rails-приложения, для этого нужно указать в database.yml нужные настройки и выполнить команду</p>
+<pre>RAILS_ENV=production rake db:create</pre>
+<p>Прогоняем миграции (если есть)</p>
+<pre>RAILS_ENV=production rake migrate</pre>
+<p>Всё, наш сервер готов к работе.</p>

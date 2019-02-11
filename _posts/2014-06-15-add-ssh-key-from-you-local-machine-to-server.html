@@ -1,0 +1,22 @@
+---
+layout: post
+status: publish
+published: true
+title: Add ssh key from you local machine to server
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 324
+wordpress_url: http://extazystas.ru/?p=324
+date: '2014-06-15 13:13:11 +0300'
+date_gmt: '2014-06-15 11:13:11 +0300'
+categories:
+- ubuntu
+tags: []
+comments: []
+---
+<pre>cat ~/.ssh/id_rsa.pub | ssh user@123.45.56.78 "cat >> ~/.ssh/authorized_keys"</pre>

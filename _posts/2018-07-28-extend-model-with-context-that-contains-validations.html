@@ -1,0 +1,39 @@
+---
+layout: post
+status: publish
+published: true
+title: Extend model with context that contains validations
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 436
+wordpress_url: http://extazystas.ru/?p=436
+date: '2018-07-28 12:42:17 +0300'
+date_gmt: '2018-07-28 10:42:17 +0300'
+categories:
+- RoR
+- ruby
+tags: []
+comments: []
+---
+<p>Imagine that you need conditional validation and you can't use ReForm or other form objects while extending third-party logic.<br />
+Then you can add custom context to model instance:</p>
+{% highlight ruby %}
+client = Client.find(id)
+client.extend(Client::RegistrationContext)
+
+module Client::RegistrationContext
+  def self.extended(model)
+    class << model
+      validates :terms_of_service, acceptance: true
+    end
+  end
+
+  attr_accessor :terms_of_service
+end
+{% endhighlight %}
+<p>`Validates` method is not available in the module context so we need to call it in the model context.</p>

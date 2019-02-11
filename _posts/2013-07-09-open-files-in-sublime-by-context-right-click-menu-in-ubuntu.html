@@ -1,0 +1,49 @@
+---
+layout: post
+status: publish
+published: true
+title: Open files in Sublime by context right-click menu in Ubuntu
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 285
+wordpress_url: http://extazystas.ru/?p=285
+date: '2013-07-09 16:24:40 +0300'
+date_gmt: '2013-07-09 14:24:40 +0300'
+categories:
+- для общего развития
+- sublime text
+tags: []
+comments: []
+---
+<p>In your terminal, enter:</p>
+<pre>
+sudo gedit /usr/share/applications/sublime.desktop
+</pre>
+<p>In open file you should enter next content:</p>
+<pre>
+[Desktop Entry]
+Version=1.0
+Name=Sublime Text 3
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Text Editor
+
+Exec=sublime
+Terminal=false
+Icon=/usr/lib/Sublime Text 3/Icon/48x48/sublime_text.png
+Type=Application
+Categories=TextEditor;IDE;Development
+X-Ayatana-Desktop-Shortcuts=NewWindow
+
+[NewWindow Shortcut Group]
+Name=New Window
+Exec=sublime -n
+TargetEnvironment=Unity
+</pre>
+<p><strong>If it's not working correct, replace 'sublime' with you shortcut for Sublime text (for my Sublime text 3 I have 'subl', instead 'sublime')<br />
+Hopefully now Sublime Text 2 or 3 will work fine from your right click context menu.</p>

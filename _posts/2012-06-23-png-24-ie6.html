@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: PNG-24  в IE6 - действительно работающее решение
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 197
+wordpress_url: http://extazystas.ru/?p=197
+date: '2012-06-23 21:04:54 +0300'
+date_gmt: '2012-06-23 19:04:54 +0300'
+categories:
+- для общего развития
+- IE6
+tags: []
+comments: []
+---
+<h4>Полностью рабочий png-24 в IE6 за 30 секунд, всего 7 кб</h4>
+<p>Оказалось что решений много, но заработало у меня только это. На сайте микрософта также есть решение - но оно ничего не изменило.</p>
+<p>Всё что вам нужно - <a href="/wp-content/uploads/2012/06/ie6fix.js">это скачать этот скрипт</a> и подключить его в вашем шаблоне вот таким образом (подключайте обязательно после библиотеки jQuery):</p>
+<pre>
+<!--[if IE 6]>
+<script type="text/javascript" src="ie6fix.js"></script>
+<script type="text/javascript">
+	DD_belatedPNG.fix('.png24');
+</script>
+<![endif]-->
+</pre>
+<p>Как видно из кода, все что вам нужно - это добавить класс 'png24' к нужному элементу (картинке или блоку с background-image).</p>
+<p>Всё, пользуйтесь на здоровье.</p>

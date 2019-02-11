@@ -1,0 +1,65 @@
+---
+layout: post
+status: publish
+published: true
+title: Extract value from resulting array to a method
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 432
+wordpress_url: http://extazystas.ru/?p=432
+date: '2018-07-22 15:44:57 +0300'
+date_gmt: '2018-07-22 13:44:57 +0300'
+categories:
+- для общего развития
+- RoR
+- ruby
+tags: []
+comments: []
+---
+<p>For example, we have method output like:</p>
+{% highlight ruby %}
+[false, 'Error'] or
+[true, result]
+{% endhighlight %}
+<p>We can use it this way:</p>
+{% highlight ruby %}
+def action
+  passed, result = call_some_method
+
+  if passed
+    do_calculations
+  else
+    render json: { error: result, status: 400 }
+  end
+end
+{% endhighlight %}
+<p>And inside `do_calculations` we can access result by calling method `result`:</p>
+{% highlight ruby %}
+def do_calculations
+  clients: method_1,
+  schedules: method_2
+end
+
+private
+
+def method_1
+  ::CallSomeService.new(client, result).call
+end
+
+def method_2
+  ::CallAnotherService.new(client, result).call
+end
+
+memoize def result
+  call_some_method.yield_self { |_, result| result }
+end
+
+memoize def call_some_method
+  # ...
+end
+{% endhighlight %}

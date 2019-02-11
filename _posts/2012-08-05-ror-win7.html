@@ -1,0 +1,118 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Установка RailsInstaller RoR под Windows 7 '
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 201
+wordpress_url: http://extazystas.ru/?p=201
+date: '2012-08-05 15:53:59 +0300'
+date_gmt: '2012-08-05 13:53:59 +0300'
+categories:
+- RoR
+tags: []
+comments:
+- id: 104
+  author: romalex
+  author_email: aleksei.romanoff@gmail.com
+  author_url: ''
+  date: '2012-10-09 07:57:32 +0300'
+  date_gmt: '2012-10-09 05:57:32 +0300'
+  content: Спасибо, помогло.
+- id: 197
+  author: Александр
+  author_email: 20sasha10@mail.ru
+  author_url: ''
+  date: '2015-01-17 21:26:08 +0300'
+  date_gmt: '2015-01-17 19:26:08 +0300'
+  content: Спасибо за помощь!!! Помогло! Это единственный пост в инете, который мне
+    подошел.
+- id: 201
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2015-03-13 17:09:46 +0300'
+  date_gmt: '2015-03-13 15:09:46 +0300'
+  content: Рад, что кому-то помогло.
+- id: 203
+  author: Darya
+  author_email: seomsl@mail.ru
+  author_url: http://yadaniblog.ru
+  date: '2015-03-24 14:21:04 +0300'
+  date_gmt: '2015-03-24 12:21:04 +0300'
+  content: "Можно не закидывать в папки, а скачать все через консоль с помощью командной
+    строки\r\ngem install bundler --source http://rubygems.org"
+- id: 207
+  author: AlimovTILLO
+  author_email: tillo.kg@mail.ru
+  author_url: https://www.facebook.com/AlimovTILLO
+  date: '2015-05-11 16:43:35 +0300'
+  date_gmt: '2015-05-11 14:43:35 +0300'
+  content: "gem install jquery-rails:ошибка \r\nERROR:  While executing gem ... (Gem::DependencyError)\r\n
+    \   Unable to resolve dependencies: jquery-rails requires railties (>= 4.2.0),
+    r\r\nails-dom-testing (~> 1.0)!!!"
+- id: 209
+  author: Ali
+  author_email: ingbai.ru@gmail.com
+  author_url: ''
+  date: '2015-06-06 08:09:46 +0300'
+  date_gmt: '2015-06-06 06:09:46 +0300'
+  content: не могу не как понять на счет (C:/Users/USERNAME &mdash; где USERNAME &mdash;
+    имя вашего )может кто не будь приведет пример
+- id: 214
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2016-01-29 13:59:18 +0300'
+  date_gmt: '2016-01-29 11:59:18 +0300'
+  content: Имя вашего пользователя в Windows
+- id: 215
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2016-01-29 14:00:37 +0300'
+  date_gmt: '2016-01-29 12:00:37 +0300'
+  content: очевидно, что нужно решить проблему с зависимостями библиотек - проверить
+    версии, которые требует установщик
+---
+<h4>Итак, Вам нужно установить Ruby On Rails под Windows 7?</h4>
+<p>Отлично, для этого существует замечательный кит <a href="http://railsinstaller.org/" rel=nofollow">Railsinstaller</a>, которые помогает избежать траты времени и сил при установке SQL, Git и т.д....<br />
+Установили, ввели в консоль своё имя и e-mail - появляется куча ошибок в консоли, но RoR Вроде как установлен. </p>
+<p>Проверяем:</p>
+<pre>
+rails new ProjectName
+</pre>
+<p><strong><!--more Читать дальше >>--></strong></p>
+<p>Создается проект (набор папочек и файлов) - обычно в C:/Sites<br />
+Пробуем зайти на http://localhost:3000 и... страница не найдена.<br />
+пишем в консоли</p>
+<pre>
+cd Project name
+</pre>
+<p>Затем оказываемся в папке C:/Sites/Projectname<br />
+пишем: </p>
+<pre>
+rails server
+</pre>
+<p>Консоль выводит нам:</p>
+<pre>
+&larr;[31mCould not find gem 'jquery-rails (= 2.0.0) x86-mingw32' in any of the gem sources listed in your Gemfile.&larr;[0m
+&larr;[33mRun `bundle install` to install missing gems.&larr;[0m
+</pre>
+<p>Скачиваем гемы bundle и jquery-rails с сайта <a href="http://rubygems.org/" rel="nofollow">http://rubygems.org/</a><br />
+Дальше самое важное! <br />
+1) Закидываем скачанные файлы в папку C:/Users/USERNAME - где USERNAME - имя вашего профиля в Windows.<br />
+2) Пишем в консоли SET HOME=%USERPROFILE% (где USERPROFILE = USERNAME = имя вашего профиля в системе - на кириллице не проверял (лучше используйте латиницу для имени своего профиля).<br />
+3) пишем в консоли: </p>
+<pre>
+gem install bundle
+После его установки пишем:
+gem install jquery-rails
+</pre>
+<p>4) Все! После установки гема выполняем команду rails server из папки нашего проекта и заходим на Localhost:3000</p>

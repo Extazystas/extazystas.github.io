@@ -1,0 +1,40 @@
+---
+layout: post
+status: publish
+published: true
+title: Paste image into prawn pdf with StringIO and base-64 encoding
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 402
+wordpress_url: http://extazystas.ru/?p=402
+date: '2016-03-03 18:22:33 +0300'
+date_gmt: '2016-03-03 16:22:33 +0300'
+categories:
+- RoR
+- ruby
+tags: []
+comments: []
+---
+<p>I getting BASE64_IMAGE_GOES_HERE from signature_pad js lib with getSignatureImage() method.</p>
+{% highlight ruby %}
+  def render
+    pdf = Prawn::Document
+    pdf.image StringIO.new(Base64.decode64(splitBase64(BASE64_IMAGE_GOES_HERE)[:data])), at: [10, cursor - 50], width: 200, height: 125
+  end
+
+  def splitBase64(uri)
+    if uri.match(%r{^data:(.*?);(.*?),(.*)$})
+      return {
+        type:      $1, # "image/png"
+        encoder:   $2, # "base64"
+        data:      $3, # data string
+        extension: $1.split('/')[1] # "png"
+        }
+    end
+  end
+{% endhighlight %}

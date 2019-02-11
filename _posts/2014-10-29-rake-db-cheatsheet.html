@@ -1,0 +1,31 @@
+---
+layout: post
+status: publish
+published: true
+title: rake db cheatsheet
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 355
+wordpress_url: http://extazystas.ru/?p=355
+date: '2014-10-29 18:09:52 +0300'
+date_gmt: '2014-10-29 16:09:52 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<pre>
+db:migrate runs (single) migrations that have not run yet.
+db:create creates the database
+db:drop deletes the database
+db:schema:load creates tables and columns within the (existing) database following schema.rb
+
+db:setup does db:create, db:schema:load, db:seed
+
+db:reset does db:drop, db:setup
+</pre>

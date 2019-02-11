@@ -1,0 +1,40 @@
+---
+layout: post
+status: publish
+published: true
+title: The way to store config options in ruby without using ENV variables
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 371
+wordpress_url: http://extazystas.ru/?p=371
+date: '2015-03-13 17:08:27 +0300'
+date_gmt: '2015-03-13 15:08:27 +0300'
+categories:
+- для общего развития
+- ruby
+tags: []
+comments: []
+---
+{% highlight ruby %}
+# my_project/config.rb
+module MyProject
+  class Config
+    attr_accessor :my_cool_option, :my_other_option
+  end
+end
+
+# my_project.rb
+module MyProject
+  def self.config
+    @config ||= Config.new
+  end
+
+  def self.configure
+    yield(config)
+  end
+{% endhighlight %}

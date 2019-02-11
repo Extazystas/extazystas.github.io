@@ -1,0 +1,43 @@
+---
+layout: post
+status: publish
+published: true
+title: Плывет Lightbox(slimbox) в Virtuemart на странице товара
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 43
+wordpress_url: http://extazystas.ru/?p=43
+date: '2011-11-14 13:09:57 +0300'
+date_gmt: '2011-11-14 11:09:57 +0300'
+categories:
+- joomla
+- virtuemart
+tags: []
+comments: []
+---
+<p><span style="font-size:14px;">Добрый день! Сегодня решил очень зловредную проблему, из-за которой раньше даже приходилось писать собственный lightbox для страницы товара в Virtuemart и отключать slimbox.</span></p>
+<p><span style="font-size:14px;">В чем пробема?</span></p>
+<blockquote><p>При увеличении фотографии товара, нижний блок с кнопкой "закрыть" съезжает на несколько пикселей вправо-влево.</p></blockquote>
+<p><span style="font-size:14px;"><strong>Решение проблемы:&nbsp;</strong></span></p>
+<p><strong><!--more Читать дальше >>--></strong></p>
+<h4><span style="color:#f00;">Замените файл <span style="color:#000;">/components/com_virtuemart/js/slimbox/js/slimbox.js</span> на тот, что я прикрепил в архиве.</span></h4>
+<h4><span style="color:#f00;">Также, были случаи, что плыла корзина при добавлении товара в него. В этом же архиве лежит файл. Его нужно заменить в <span style="color:#000;">/components/com_virtuemart/js/mootools/mooPrompt.js</span></span></h4>
+<p><span style="color:#696969;"><br />
+	</span></p>
+<p><strong>Можете конечно сделать всё сами. Для этого:&nbsp;</strong></p>
+<blockquote><p><strong><span style="color:#f00;">Для slimbox.js:</span></strong><br />
+	замените все вхождения строки (у меня было 1 вхождение)<br />
+	Код: <strong>G.getWidth()</strong><br />
+	в файле slimbox.js на <br />
+	<strong>(G[&#39;innerWidth&#39;] || G.getWidth())</strong><br />
+	<strong><span style="color:#f00;">Для mooPrompt.js:</span></strong><br />
+	замените все вхождения строки<br />
+	Код: <strong>Window.getHeight()</strong><br />
+	в файле mooPrompt.js на <br />
+	<strong>(Window[&#39;innerHeight&#39;] || Window.getHeight())</strong></p></blockquote>
+<p style="font-size:14px;">Ссылка на архив с файлами:&nbsp;<a href="http://extazystas.ru/wp-content/uploads/2011/11/Slimbox1.zip" style="font-size: 12px; ">Slimbox</a></p>

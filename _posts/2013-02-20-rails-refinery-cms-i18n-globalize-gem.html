@@ -1,0 +1,40 @@
+---
+layout: post
+status: publish
+published: true
+title: Rails Refinery CMS I18n + globalize gem
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 250
+wordpress_url: http://extazystas.ru/?p=250
+date: '2013-02-20 11:19:01 +0300'
+date_gmt: '2013-02-20 09:19:01 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<h4>Refinery cms allow you to add custom translations to your pages (see config/refinery/i18n.rb file).</h4>
+<p>But when you want to add translation table to existing engine model (for example Refinery::Articles::Article) do this:</p>
+<pre>
+rails g refinery:engine article name:string description:text photo:image --extension=articles --namespace articles --i18n name description
+</pre>
+<p>This code will create migration with translations table (in vendor/extensions/articles/db/migrations) and extend your model (translates <strong>name</strong> and <strong>description</strong> fields)<br><br />
+To copy this migration put this command:</p>
+<pre>
+rails g refinery:articles
+</pre>
+<p>
+Or you can do this manually, by moving your migration code to your_app/db/migrations/timestamp_crete_articles_articles.rb</p>
+<p><strong>P.S. If you got error when try to run your migration with text "can't mass assignment write attribute locale", create file globalize_locale.rb in your config/initializers directory with the following text:</strong></p>
+<pre>
+Globalize::ActiveRecord::Translation.class_eval do
+  attr_accessible :locale
+end
+</pre>
+<h5>Good luck!</h5>

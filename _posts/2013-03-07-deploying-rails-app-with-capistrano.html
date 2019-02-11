@@ -1,0 +1,92 @@
+---
+layout: post
+status: publish
+published: true
+title: Deploying rails app with capistrano
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 262
+wordpress_url: http://extazystas.ru/?p=262
+date: '2013-03-07 12:38:04 +0300'
+date_gmt: '2013-03-07 10:38:04 +0300'
+categories:
+- RoR
+- git
+tags: []
+comments: []
+---
+<p>В продолжение к предыдущей записи.</p>
+<h6>Сервер мы настроили, но нужно деплоить приложение с локальной машины, а не делать все вручную на сервере.</h6>
+<p>Конечно, наше приложение должно быть запушено на github. Ставим гем capistrano в нашу прилагу. </p>
+<pre>
+# Deploy with Capistrano
+group :development do
+  gem 'capistrano'
+  gem 'rvm-capistrano' # нужен для корректной работы с rvm
+end
+</pre>
+<p>Далее в терминале:<br />
+<!--more--></p>
+<pre>
+$ bundle install
+$ capify .
+</pre>
+<p>У нас появится файл в config/deploy.rb<br />
+Вот он и нужен для настройки деплоя. Приведу здесь примерное его содержимое из тестового приложения:</p>
+<pre>
+require 'rvm/capistrano'
+require 'bundler/capistrano'
+
+ssh_options[:forward_agent] = true
+set :rvm_ruby_string, '1.9.3-p392@repo_name'
+
+set :application, "Application name"
+set :repository,  "git@github.com:github_username/repo_name.git"
+set :default_stage, "production"
+# set :stages, %w(production)
+set :use_sudo, false
+set :user, 'deploy' # нужно предварительно создать юзера на сервере, юзать root'a не стоит
+set :scm, :git
+set :normalize_asset_timestamps, false
+
+set :rails_env, 'production'
+set :branch, 'master'
+set :deploy_to, "/home/server_username/APP_NAME"
+server 'SERVER_IP', :web, :app, :db, :primary => true
+
+</pre>
+<p>Деплоим:</p>
+<pre>$ cap deploy</pre>
+<p>После деплоя  наше приложение на сервере будет иметь следующую структуру:</p>
+<pre>
+root@server_name:~$ cd  APP_NAME
+$ ls -l 
+- current # здесь находится наше приложение
+- releases
+- shared
+</pre>
+<p>Нужно зайти в папку shared и создать там директорию config, положив туда нужный database.yml файл, затем добавить в конец файла deploy.rb след. таск:</p>
+<pre>
+after "deploy:update_code", :symlink_config_files
+
+task :symlink_config_files do
+  symlinks = {
+      "#{shared_path}/config/database.yml" => "#{release_path}/config/database.yml"
+  }
+  run symlinks.map { |from, to| "ln -nfs #{from} #{to}" }.join(" && ")
+  run "chmod -R g+rw #{release_path}/public"
+end
+</pre>
+<p>Как видно из этого конфига, у нас есть symlink_config_files таск, который тянет файл database.yml из папки shared в папку current, где и находится наше приложение.</p>
+<p>На этом всё.<br />
+Также рекомендую добавить на сервер свой ssh ключ, чтобы не вводить каждый раз пароль.</p>
+<pre>
+$ cd ~/.ssh
+$ vim known_hosts # создаем файл knows_hosts, в него нужно скопировать ssh ключ с локальной машины (без пробелов и переносов строк)
+не забудьте выставить нужные права на чтение данного файла.
+</pre>

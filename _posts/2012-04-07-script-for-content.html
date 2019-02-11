@@ -1,0 +1,129 @@
+---
+layout: post
+status: publish
+published: true
+title: Скрипт для защиты контента от копирования
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 112
+wordpress_url: http://extazystas.ru/?p=112
+date: '2012-04-07 11:37:17 +0300'
+date_gmt: '2012-04-07 09:37:17 +0300'
+categories:
+- joomla
+- wordpress
+- MODx
+tags: []
+comments:
+- id: 143
+  author: Dima
+  author_email: dima112234@yandex.ru
+  author_url: http://screepy.ru
+  date: '2013-07-22 10:46:58 +0300'
+  date_gmt: '2013-07-22 08:46:58 +0300'
+  content: Решили потролить? Ваш второй скрипт не копируется.
+- id: 144
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2013-07-22 10:51:04 +0300'
+  date_gmt: '2013-07-22 08:51:04 +0300'
+  content: Нет. Все копируется. Попробуйте скопировать содержимое внутри тега 'script'
+    - не копируя его самого
+---
+<blockquote>Мой текст постоянно воруют и мой сайт не может продвинуться! Что мне делать?! - есть решение!</p></blockquote>
+<p>Сейчас, когда интернет заменил для большинства пользователей библиотеки и газетные киоски, проблема воровства контента (текстов) стоит очень остро.</p>
+<p>В этой записи предлагаю вам 2 варианта скриптов . Они очень простые, нужно только подключить файл в <head> вашего сайта или вбить туда готовый код. Как вам поступить решайте сами. Итак:</p>
+<p><strong><!--more Читать дальше >>--></strong></p>
+<p>1) Скрипт с запретом копирования и выделения текста. Этот скрипт запрещает выделять что-либо на сайте и соотв-но скопировать тоже не удастся (хотя если очень постараться, то знающие люди скопируют везде).</p>
+<p>&nbsp;</p>
+<pre>
+function preventSelection(element){
+  var preventSelection = false;
+
+  function addHandler(element, event, handler){
+    if (element.attachEvent) 
+      element.attachEvent('on' + event, handler);
+    else 
+      if (element.addEventListener) 
+        element.addEventListener(event, handler, false);
+  }
+  function removeSelection(){
+    if (window.getSelection) { window.getSelection().removeAllRanges(); }
+    else if (document.selection && document.selection.clear)
+      document.selection.clear();
+  }
+  function killCtrlA(event){
+    var event = event || window.event;
+    var sender = event.target || event.srcElement;
+
+    if (sender.tagName.match(/INPUT|TEXTAREA/i))
+      return;
+
+    var key = event.keyCode || event.which;
+    if (event.ctrlKey && key == 'A'.charCodeAt(0))  
+    {
+      removeSelection();
+
+      if (event.preventDefault) 
+        event.preventDefault();
+      else
+        event.returnValue = false;
+    }
+  }
+
+
+  addHandler(element, 'mousemove', function(){
+    if(preventSelection)
+      removeSelection();
+  });
+  addHandler(element, 'mousedown', function(event){
+    var event = event || window.event;
+    var sender = event.target || event.srcElement;
+    preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i);
+  });
+
+ 
+  addHandler(element, 'mouseup', function(){
+    if (preventSelection)
+      removeSelection();
+    preventSelection = false;
+  });
+
+  // запрещаем ctrl+A
+ 
+  addHandler(element, 'keydown', killCtrlA);
+  addHandler(element, 'keyup', killCtrlA);
+}
+
+preventSelection(document);
+</pre>
+<p>2) Добавляем к скопированному тексту копирайт вида<br /> <i>Источник: http://extazystas.ru/<br />
+Все права защищены &copy; ExtazyStas.ru</i></p>
+<p><strong>Не забудьте обернуть данный код в тег 'script' на вашей странице!</strong></p>
+<pre>
+function addLink() {
+var body_element = document.getElementsByTagName('body')[0];
+var selection;
+selection = window.getSelection();
+var pagelink = "<br /><br /> Источник: <a href="+document.location.href+">"+document.location.href+"</a><br />Все права защищены &copy; mysite.com"; // Вы можете изменить текст в этой строчке
+var copytext = selection + pagelink;
+var newdiv = document.createElement('div');
+newdiv.style.position='absolute';
+newdiv.style.left='-99999px';
+body_element.appendChild(newdiv);
+newdiv.innerHTML = copytext;
+selection.selectAllChildren(newdiv);
+window.setTimeout(function() {
+body_element.removeChild(newdiv);
+},0);
+}
+document.oncopy = addLink;
+</pre>
+<p>Вот и всё! Пользуйтесь на здоровье, в большинстве случаев это поможет! Но никто не даст 100% гарантии от принтскрина+файнридера ;)</p>
+<p>&copy; <a href="http://extazystas.ru/" rel="author">extazystas.ru</a></p>

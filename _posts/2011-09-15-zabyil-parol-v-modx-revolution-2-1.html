@@ -1,0 +1,81 @@
+---
+layout: post
+status: publish
+published: true
+title: Забыл пароль в MODX Revolution 2.1+
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 37
+wordpress_url: http://extazystas.ru/?p=37
+date: '2011-09-15 17:41:14 +0300'
+date_gmt: '2011-09-15 15:41:14 +0300'
+categories:
+- MODx
+tags: []
+comments:
+- id: 48
+  author: integral
+  author_email: as@iltec.ru
+  author_url: http://iltec-prom.ru
+  date: '2012-04-16 07:12:43 +0300'
+  date_gmt: '2012-04-16 05:12:43 +0300'
+  content: "Есть ещё 1 способ, если нету phpMyAdmin например из соображений безопасности.\r\nИспользуя
+    API модекса.\r\n\r\nСоздать где либо на сервере данный файл с php кодом и выполнить,
+    как выполнять не важно либо прямо на сервере либо открыть в браузере.\r\n\r\ninitialize('mgr');\r\n
+    \r\n$query = $modx->newQuery('modUser');\r\n$query->where( array('username'=>$username)
+    );\r\n$user = $modx->getObjectGraph('modUser', '{ \"Profile\":{}, \"UserGroupMembers\":{}
+    }', $query);\r\n// print_r($user); exit;\r\nif (!$user) {\r\n    die(\"ERROR:
+    No user with username $username\");\r\n}\r\n \r\n \r\n$user->set('username',$username);\r\n$user->set('active',1);\r\n$user->set('password',
+    $password);\r\n$user->Profile->set('email', $email);\r\n$user->Profile->set('blocked',
+    0);\r\n$user->Profile->set('blockeduntil', 0);\r\n$user->Profile->set('blockedafter',
+    0);\r\n \r\n// Verify the user is a member of specified User Group\r\n$is_member
+    = false;\r\nif (!empty($user->UserGroupMembers)) {\r\n    foreach ($user->UserGroupMembers
+    as $UserGroupMembers) {\r\n        if ($UserGroupMembers->get('user_group') ==
+    $user_group) {\r\n            $is_member = true;\r\n            break;          \r\n
+    \       }\r\n    }\r\n}\r\n// Add the User to the User Group if he is not a member\r\nif
+    (!$is_member) {\r\n    // Verify the user group exists\r\n    $UserGroup = $modx->getObject('modUserGroup',
+    $user_group);\r\n    if (!$UserGroup) {\r\n        die (\"ERROR: User Group $user_group
+    does not exist.\");\r\n    }\r\n \r\n    $Member = $modx->newObject('modUserGroupMember');\r\n
+    \   $Member->set('user_group', $user_group); \r\n    $Member->set('member', $user->get('id'));\r\n
+    \   // Super User = role 2\r\n    $Member->set('role', 2); \r\n    $Member->set('rank',
+    0);\r\n    $user->addOne($Member,'UserGroupMembers');\r\n}\r\n \r\n/* save user
+    */\r\nif (!$user->save()) {\r\n    die('ERROR: Could not save user.');\r\n}\r\n
+    \r\nprint \"SUCCESS: User $username updated.\";\r\n \r\n?>"
+- id: 59
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2012-04-21 13:31:00 +0300'
+  date_gmt: '2012-04-21 11:31:00 +0300'
+  content: "Спасибо, будем знать. \r\n+Ведь можно phpmyadmin временно поставить и
+    снести потом."
+- id: 100
+  author: алекс
+  author_email: lextost@mail.ru
+  author_url: ''
+  date: '2012-09-19 14:16:05 +0300'
+  date_gmt: '2012-09-19 12:16:05 +0300'
+  content: спасибо!
+---
+<p><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><strong><span style="color:#696969;">Облазил весь интернет &mdash; еле нашел. <br />
+	</span></strong></span></span></p>
+<p><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><span style="color:#f00;">Если вы вдруг забыли пароль от админки MODx Revolution не отчаивайтесь!</span></span></span></p>
+<p><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><span style="color:#696969;">В MODX Revo 2.1+ пароль шифруется с использованием SALT и схема сброса пароля изменилась. Если у нас есть доступ в phpMyAdmin, но мы забыли пароль в админку &mdash; надо сделать следующее: <br />
+	</span></span></span></p>
+<ol>
+<li><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><span style="color:#696969;">Находим в базе табличку modx_users <br />
+		</span></span></span></li>
+<li><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><span style="color:#696969;">Меняем поле password на <strong>5f4dcc3b5aa765d61d8327deb882cf99 </strong><br />
+		</span></span></span></li>
+<li><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><span style="color:#696969;">В поле salt удаляем значение <br />
+		</span></span></span></li>
+<li><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><span style="color:#696969;">В поле hash_class пишем hashing.modMD5 <br />
+		</span></span></span></li>
+<li><span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;"><span style="color:#696969;">Вуаля! Наш пароль теперь password!&nbsp;<img alt="" src="http://extazystas.ru/wp-content/plugins/fckeditor-for-wordpress-plugin/ckeditor/plugins/smiley/images/thumbs_up.gif" title="" /><br />
+		</span></span></span></li>
+</ol>

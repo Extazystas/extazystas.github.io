@@ -1,0 +1,107 @@
+---
+layout: post
+status: publish
+published: true
+title: Изменить внешний вид input type=radio или checkbox без js
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 164
+wordpress_url: http://extazystas.ru/?p=164
+date: '2012-04-21 14:04:26 +0300'
+date_gmt: '2012-04-21 12:04:26 +0300'
+categories:
+- для общего развития
+tags: []
+comments:
+- id: 65
+  author: Alexey Brynov
+  author_email: lexpochta@gmail.com
+  author_url: ''
+  date: '2012-04-27 14:22:57 +0300'
+  date_gmt: '2012-04-27 12:22:57 +0300'
+  content: "CSS селекторы типа :not, :first, :even, :odd, :last и т.д. не работают
+    в ИЕ.\r\n\r\nЕсть плагин JS - selectivizr, для работы с CSS слекторами.\r\n\r\nА
+    вообще можно оформлять чекбоксы и прочее так:\r\n\r\nСам чекбокс делать с opacity:0
+    (в ИЕ нужно прописать alpha фильтер), а оформлять label для этого чекбокса, который
+    кладется под него. И в css оформление делать через .customCheckbox['checked=\"checked\"']
+    label {background ...... }"
+- id: 66
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2012-04-28 15:04:12 +0300'
+  date_gmt: '2012-04-28 13:04:12 +0300'
+  content: Не работает в IE < 9. Но в 9 уже ок. через годик-два ранние версии отомрут
+    - хотелось бы.
+- id: 88
+  author: SDKiller
+  author_email: svbk2009@yandex.ru
+  author_url: ''
+  date: '2012-05-16 16:05:12 +0300'
+  date_gmt: '2012-05-16 14:05:12 +0300'
+  content: "Да, у IE трабл с передачей клика с label на чекбокс, у которого display:none
+    - не отмечается.\r\nСталкивался несколько раз."
+- id: 190
+  author: Valery
+  author_email: zed_cool@list.ru
+  author_url: http://siteacademy.ru
+  date: '2014-08-25 09:50:21 +0300'
+  date_gmt: '2014-08-25 07:50:21 +0300'
+  content: Рекомендую интересный пример с использованием чекбоксов http://siteacademy.ru/index.php/css/39-css/annotation-overlay-effect
+---
+<p>На днях, делая верстку столкнулся с тем, что нужно было заменить стандартный вид тега input radio на свои картинки.</p>
+<p><i>Сразу говорю, это работает в IE только с 9й версии. Так что кому-то может не подойти. Впрочем, это может быть исправлено применением для IE свойства behavior.</i></p>
+<p><strong><!--more Читать дальше >>--></strong><br />
+<a align="center" href="http://extazystas.ru/wp-content/uploads/2012/04/radioinput1.jpg"><img class="size-full wp-image-165" title="" align="center" src="http://extazystas.ru/wp-content/uploads/2012/04/radioinput1.jpg" alt="" width="314" height="200" /></a></p>
+<p>Для начала нужно немного переделать стандарный HTML код:</p>
+<pre>
+ <input type='radio' id='Choice1' name='Choice'>
+ <label for='Choice1'>Первый выбор</label><br>
+
+ <input type='radio' id='Choice2' name='Choice'>
+ <label for='Choice2'>Второй выбор</label><br>
+
+ <input type='radio' id='Choice3' name='Choice'>
+ <label for='Choice3'>Третий выбор</label><br>
+
+ <input type='radio' id='Choice4' name='Choice'>
+ <label for='Choice4'>Четвертый выбор</label><br>
+</pre>
+<p>Затем в CSS пишем: </p>
+<pre>
+body:not(#Foo) label
+  {padding:2px 0px 2px 20px;}
+
+body:not(#Foo) input[type=radio]
+  {display:none;}
+
+body:not(#Foo) input[type=radio] + label
+  {background:url({выключенная кнопка}) no-repeat 0px 0px;}
+
+body:not(#Foo) input[type=radio]:checked + label
+  {background:url({включенная кнопка}) no-repeat 0px 0px;}
+</pre>
+<p><strong>Как это работает?</strong></p>
+<p>
+1. Во-первых, в HTML существует специальный элемент &laquo;label&raquo;, который можно назначить любому элементу формы, и щелчок по которому будет соответствовать щелчку по элементу формы.</p>
+<p>2. Во-вторых, в CSS2.1 есть специальный псевдокласс :checked, применяемый только к отмеченным элементам radio и checkbox. Что важно &ndash; это динамический псевдокласс. То есть установка или сброс элементов radio или checkbox повлекут применение или отмену применения правил с этим псевдоклассом.</p>
+<p>3. В-третьих, в CSS предусмотрен сестринский селектор комбинирующий два других селектора. При этом значения свойств применяются к элементу заданному вторым селектором, но только если непосредственно перед ним находится элемент, удовлетворяющий первому селектору.</p>
+<p>Наш рецепт совмещает все эти три факта. Мы прячем (при помощи свойства display) реальный элемент radio и назначаем этому спрятанному элементу элемент label. После этого, при помощи сестринского селектора создаем несколько правил оформления элемента label. А в качестве первого селектора в сестринском селекторе используем селектор для radio элемента в разных его состояниях.</p>
+<p>ПРИМЕР РАБОТЫ:</p>
+<div id="demo_radio">
+<form action="" method="GET" target="_blank">
+					<input type='radio' id='Choice1' name='Choice'><br />
+					<label for='Choice1'>Пункт 1</label><br><br />
+					<input type='radio' id='Choice2' name='Choice'><br />
+					<label for='Choice2'>Пункт 2</label><br><br />
+					<input type='radio' id='Choice3' name='Choice'><br />
+					<label for='Choice3'>Пункт 3</label><br><br />
+					<input type='radio' id='Choice4' name='Choice'><br />
+					<label for='Choice4'>Пункт 4</label><br></p></form>
+</div>
+<p>Спасибо за помощь <a href="http://stylesheet.ru/recipes/forms/radio-styled.html" rel="nofollow">этому сайту</a>.</p>

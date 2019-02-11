@@ -1,0 +1,98 @@
+---
+layout: post
+status: publish
+published: true
+title: Integrate gem 'refinerycms-page-images' to custom engine
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 270
+wordpress_url: http://extazystas.ru/?p=270
+date: '2013-03-21 17:49:28 +0300'
+date_gmt: '2013-03-21 15:49:28 +0300'
+categories:
+- RoR
+- refinery
+tags: []
+comments: []
+---
+<h4>There are few simple steps to integrate this gem in your engine</h4>
+<p>Sure, you need to install refinery with this gem for the begining<br />
+1) Create example engine</p>
+<pre>
+rails g refinery:engine article title:string description:text
+</pre>
+<p>2) Open your article model and add following code:</p>
+<pre>
+has_many :image_pages, :as => :item, :order => 'position ASC'
+has_many :images, :through => :image_pages, :order => 'position ASC'
+has_many_page_images
+</pre>
+<p>3) Open your engine admin _form partial and replace this code:<br />
+<!--more--></p>
+<pre>
+<div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:description].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/memories/memory", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:description].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</pre>
+<p><strong>with this:</strong></p>
+<pre>
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:description, :images].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/memories/memory", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:description].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+        <div class='page_part' id="images">
+              <%= render partial: 'refinery/admin/pages/tabs/images', locals: {f: f} %>
+            </div>
+      </div>
+    </div>
+  </div>
+</pre>
+<p>After this step, restart rails server and your got it<br />
+4) Add images to your show (view) page:</p>
+<pre>
+<ul id='gallery' class="thumbs noscript">
+      <% @article.images.each_with_index do |image, index| %>
+        <li>
+          <%= link_to image.thumbnail("900x600").url, :class => 'thumb' do %>
+            <%= image_tag(image.thumbnail("120x120#c").url) %>
+          <% end %>
+
+          <div class="caption"><%=raw @article.caption_for_image_index(index) %></div>
+
+        </li>
+     <% end %>
+  </ul>
+</pre>
+<p><strong>That's all!</strong></p>

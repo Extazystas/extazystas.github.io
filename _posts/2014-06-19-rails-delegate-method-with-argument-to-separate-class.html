@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: Rails delegate method with argument to separate class
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 329
+wordpress_url: http://extazystas.ru/?p=329
+date: '2014-06-19 16:36:55 +0300'
+date_gmt: '2014-06-19 14:36:55 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<h5>If you need to delegate method to a custom class (not AR) and pass object as parameter to this class, you can use next code:</h5>
+<pre>
+class One < ActiveRecord::Base
+  # ...
+  delegate :some_method, to: :name_for_the_class
+
+  def name_for_the_class
+    @delegator ||= ::ClassToDelegate.new(self)
+  end
+end
+</pre>

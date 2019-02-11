@@ -1,0 +1,37 @@
+---
+layout: post
+status: publish
+published: true
+title: Как посмотреть исходный код гема, не залазя на github
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 293
+wordpress_url: http://extazystas.ru/?p=293
+date: '2013-09-25 15:47:34 +0300'
+date_gmt: '2013-09-25 13:47:34 +0300'
+categories:
+- RoR
+- ubuntu
+- git
+tags: []
+comments: []
+---
+<h5>Иногда, во время работы, нам интересен исходный код гема, нужно посмотреть на внутреннюю логику.</h5>
+<p>Для этого выполним команду (на примере гема devise):</p>
+<pre>
+bundle open devise
+</pre>
+<p><strong>Если в консоли появилось сообщение о том, что нужно задать переменную EDITOR и ничего не открылось, делаем следующее:</strong></p>
+<pre>
+sublime ~/.bashrc
+</pre>
+<p>В открывшемся файле добавляем эту переменную и имя редактора:</p>
+<pre>
+export EDITOR=sublime
+</pre>
+<p>Profit!</p>

@@ -1,0 +1,55 @@
+---
+layout: post
+status: publish
+published: true
+title: Multi-column PDF generating with Prawn in ruby
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 397
+wordpress_url: http://extazystas.ru/?p=397
+date: '2016-01-29 14:11:55 +0300'
+date_gmt: '2016-01-29 12:11:55 +0300'
+categories:
+- RoR
+- ruby
+tags: []
+comments: []
+---
+<p>For example, you need to generate a content (or table) with width 20-30% of page and it should not break the page if height is too big but should continue on the same page in the right side.</p>
+<p>It will look like that:</p>
+<p><img src='https://developer.tizen.org/sites/default/files/dev_guide/org.tizen.ui.practices/images/4_columns.png' /></p>
+<p>Prawn has very useful methodfor doing that called 'column_box'.</p>
+{% highlight ruby %}
+# Example of 2 columns table with some styling
+def render_left_products_list
+    column_box([-5, cursor], columns: 2, height: cursor, position: :left, width: bounds.width, spacer: 40) do
+
+      @categories.each do |category|
+        move_down 6
+        table line_item_rows(category), position: :left, cell_style: { size: 7, text_color: "000000", borders: [:bottom], border_lines: [:dotted], padding: [2, 0, 4, 0] } do
+          column(1).style align: :right
+          style(row(0), text_color: HEADER_COLOR)
+          align                = { 0 => :left, 1 => :right}
+          self.width           = 285
+          self.header          = true
+          column(1).font_style = :bold
+          row(0).size          = 8
+          row(0).font_style    = :bold
+          row(0).borders       = []
+        end
+      end
+    end
+  end
+
+  def line_item_rows(category)
+    [[category.name, '']] +
+    category.products.map do |product|
+      [product.name, "#{format('%.2f', product.price)} USD"]
+    end
+  end
+{% endhighlight %}

@@ -1,0 +1,78 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Плагин Share Buttons - криво отображает кнопку вконтакте '
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 24
+wordpress_url: http://extazystas.ru/?p=24
+date: '2011-09-15 15:29:51 +0300'
+date_gmt: '2011-09-15 13:29:51 +0300'
+categories:
+- wordpress
+tags: []
+comments:
+- id: 2
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2011-09-15 17:35:56 +0300'
+  date_gmt: '2011-09-15 15:35:56 +0300'
+  content: "Если хотите поменять местами кнопки ВКонтакте и Facebook, например:\r\nЗайдите
+    в каталог <strong>wp-content/plugins/share-buttons/lik</strong>e и откройте файл&nbsp;<strong>like_customize_type</strong>\r\n<strong>в
+    66й строке</strong> задайте необходимую последовательность, например&nbsp;\r\n<strong><span
+    style=\"background-color:#fff\"><span style=\"color:#000080\">$button_code .=
+    $mailru_like.$facebook_like.$vkontakte_like;</span></span></strong>"
+- id: 3
+  author: denis
+  author_email: denis.beliauski@yahoo.com
+  author_url: ''
+  date: '2011-09-16 15:43:01 +0300'
+  date_gmt: '2011-09-16 13:43:01 +0300'
+  content: Спасибо большое. Отличный вариант.
+- id: 4
+  author: Denis
+  author_email: denis.beliauski@yahoo.com
+  author_url: ''
+  date: '2011-09-16 15:44:37 +0300'
+  date_gmt: '2011-09-16 13:44:37 +0300'
+  content: спасибо!
+- id: 164
+  author: Vikky
+  author_email: vic.shine@yandex.ru
+  author_url: http://www.vikkyshostak.ru
+  date: '2014-01-01 17:31:47 +0300'
+  date_gmt: '2014-01-01 15:31:47 +0300'
+  content: А можно просто воспользоваться удобным конструктором на http://share.cntrlmrktng.ru/
+    и поставить красивые кнопки всех популярных соц. сетей ;)
+- id: 166
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2014-03-24 14:06:14 +0300'
+  date_gmt: '2014-03-24 12:06:14 +0300'
+  content: Конечно, сейчас таких конструкторов хватает.
+---
+<p>Здравствуйте! Нужно было установить на один сайт <strong>кнопки LIKE от твиттера, контакта и фейсбука</strong>. Перепробовал много плагинов, но в основном в них отсутствует соц. сеть ВКонтакте.</p>
+<p>В конце концов всё же удалось найти нужный мне и установить. Но столкнулся с такой проблемой, что кнопка "Мне нравится" не имеет нижнего отступа. Вообще никакого. Думал ничего страшного - напишу пару строк в CSS. Но дело в том, что на каждой странице этой кнопке присваивается уникальный идентификатор вида&nbsp;<strong>vk_like_156</strong>, например. Поэтому присвоив стиль одной кнопке, на другой странице я получу всё ту же проблему.</p>
+<p><strong>Вот так выглядят кнопки в исходном плагине:</strong> </p>
+<p><span style="font-size: 14px;"><img style="margin-right: 20px;float:none" src="http://extazystas.ru/wp-content/uploads/share_error.jpg" alt="" width="216" height="119" align="left" /><br />
+<strong style='font-size:0.85em;'><!--more Читать дальше >>--></strong><br />
+<span style="color: red; margin-left: 5px;"><strong>Решение проблемы:</strong></span></span></p>
+<p style="margin-left: 20px;">Заходим в ваш шаблон вордпресс-темы, например <strong>wp-content/themes/twentyten</strong>&nbsp;и открываем файл Header.php. Далее перед закрывающим тэгом </head> вставляем </p>
+<p>&nbsp;</p>
+<pre>
+<?php
+for ($i = 1; $i <= 999; $i++) {
+echo "<style>#vk_like_".$i." {margin-bottom:12px;}</style>";
+}
+?>
+</pre>
+<p><span style="font-size: 16px;"><strong>Результат:&nbsp;</strong></span></p>
+<p><img src="http://extazystas.ru/wp-content/uploads/share_works.jpg" alt="" width="216" height="119" /></p>

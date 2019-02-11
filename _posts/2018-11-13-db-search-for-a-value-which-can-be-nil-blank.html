@@ -1,0 +1,25 @@
+---
+layout: post
+status: publish
+published: true
+title: DB search for a value which can be nil/blank
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 438
+wordpress_url: http://extazystas.ru/?p=438
+date: '2018-11-13 11:36:48 +0300'
+date_gmt: '2018-11-13 09:36:48 +0300'
+categories:
+- RoR
+- ruby
+tags: []
+comments: []
+---
+{% highlight ruby %}
+User.where(first_name: name.presence)
+{% endhighlight %}

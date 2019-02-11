@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Ubuntu 12.04 sudo apt-get update error
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 297
+wordpress_url: http://extazystas.ru/?p=297
+date: '2013-11-05 12:40:55 +0300'
+date_gmt: '2013-11-05 10:40:55 +0300'
+categories:
+- ubuntu
+tags: []
+comments: []
+---
+<h4>Recently, I have to update my ubuntu packages with a old good-known command 'sudo apt-get update' and I was fucked up</h4>
+<p><strong>I got message like this:</strong></p>
+<pre>
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/Release.gpg  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/free/binary-amd64/Packages  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/non-free/binary-amd64/Packages  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/free/binary-i386/Packages  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/non-free/binary-i386/Packages  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/free/i18n/Translation-en_US  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/free/i18n/Translation-en  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/non-free/i18n/Translation-en_US  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+
+W: Failed to fetch http://packages.medibuntu.org/dists/precise/non-free/i18n/Translation-en  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
+</pre>
+<p>Solution is very simple: The medibuntu repository has closed. You need to remove references to medibuntu from your sources.list file. If you don't want to edit the sources.list file itself, you can disable medibuntu in update manager</p>
+<p>Just open your update magaer ($ update-manager) and remove medibuntu repo in settings)</p>
+<p><strong>Profit!</strong></p>

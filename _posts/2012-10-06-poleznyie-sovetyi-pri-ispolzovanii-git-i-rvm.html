@@ -1,0 +1,80 @@
+---
+layout: post
+status: publish
+published: true
+title: Полезные советы при использовании git и rvm
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 233
+wordpress_url: http://extazystas.ru/?p=233
+date: '2012-10-06 15:13:32 +0300'
+date_gmt: '2012-10-06 13:13:32 +0300'
+categories:
+- RoR
+- git
+tags: []
+comments: []
+---
+<div>
+<p>1. Чтобы постоянно не писать команды типа git status, git commit и т.д., можно сделать<br />
+псевдонимы (aliases), чтобы сократить эти команды, например git tatus -> git st, git<br />
+commit -> git cm. Для этого открываем файл ~/.gitconfig и прописываем туда эти<br />
+строки:</p>
+<pre>
+[alias]
+st = status
+cm = commit
+br = branch
+co = checkout
+df = diff
+lg = log
+pr = pull --rebase
+pg = push origin HEAD:refs/for/master
+</pre>
+<p><strong><!--more Читать дальше >>--></strong></p>
+<p>Теперь, вместо того, чтобы писать git push origin HEAD:refs/for/master, можно<br />
+написать просто git pg и выполниться полная команда git push origin HEAD:refs/<br />
+for/master. Это не полный список алиасов, вы можете сюда добавить свои,<br />
+редактировать текущие (может быть вам не нравиться pg или не запоминается, то<br />
+есть смысл переименовать на pushg или на что-нибудь в этом роде).</p>
+<p>2. Также в этот конфиг рекомендую включить эти строки - для подсветки строк в git, очень полезная вещь:</p>
+<pre>
+[color]
+ui = auto
+branch=auto
+status=auto
+diff=auto
+
+[core]
+editor = sublime
+excludesfile = .gitignore_global
+</pre>
+<p>editor - этой опцией можно задать редактор, который будет вызываться при вызове<br />
+excludesfile &ndash; глобальный gitignore, путь к файлу "глобального" gitignore. В данном<br />
+случае в файле ~/.gitignore_global у меня хранятся все исключаемые<br />
+файлы, который git игнорирует и вы никак их не сможете добавить в коммит. Он у<br />
+меня выглядит так:</p>
+<pre>
+*~ # исключаем временные файлы sublime text
+[push]
+default = current #при использовании git push будет закидывать комиты на удаленный репозиторий только в текущую ветку.
+
+[merge]
+summary=true #при использовании git merge в сообщение коммита включает список смерженных файлов.
+</pre>
+</div>
+<p>3. Часто при работе над проектом удобно видеть на какой ветке мы находимся, есть ли у нас незакоммиченные изменения и текущую версию RVM. Чтобы не утруждать себя постоянным чеканием каждого этого параметра - можно сразу выводить их по умолчанию в начале промпта (перед курсором).</p>
+<p>Для этого нужно изменить файл .bashrc</p>
+<p>Открываем его <strong>sudo sublime ~/.bashrc</strong></p>
+<p>Добавляем в конец:</p>
+<pre>
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true 
+export GIT_PS1_SHOWSTASHSTATE=true 
+PS1='[$(~/.rvm/bin/rvm-prompt)]\u:\W[$(__git_ps1 "%s")]'
+</pre>

@@ -1,0 +1,25 @@
+---
+layout: post
+status: publish
+published: true
+title: Ruby on Rails convert array into Relation object
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 393
+wordpress_url: http://extazystas.ru/?p=393
+date: '2015-12-21 18:59:56 +0300'
+date_gmt: '2015-12-21 16:59:56 +0300'
+categories:
+- RoR
+- ruby
+tags: []
+comments: []
+---
+{% highlight ruby %}
+scope :with_scope, -> { where(id: ARRAY_COLLECTION.map(&:id)) }
+{% endhighlight %}

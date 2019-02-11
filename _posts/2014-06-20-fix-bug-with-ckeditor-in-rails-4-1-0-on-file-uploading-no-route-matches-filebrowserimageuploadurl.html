@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Fix bug with ckeditor in rails 4.1.0 on file uploading - no route matches filebrowserImageUploadUrl
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 336
+wordpress_url: http://extazystas.ru/?p=336
+date: '2014-06-20 23:02:16 +0300'
+date_gmt: '2014-06-20 21:02:16 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<p>path_to_gem/lib/ckeditor/utils.rb:39</p>
+<pre>  
+def js_fileuploader(uploader_type, options = {})
+        options = { :multiple => true, :element => "fileupload" }.merge(options)
+
+        case uploader_type.to_s.downcase
+          when "image" then
+            options[:action] = JavascriptCode.new("EDITOR.config.filebrowserImageUploadUrl")
+            options[:allowedExtensions] = Ckeditor.image_file_types
+          when "flash" then
+            options[:action] = JavascriptCode.new("EDITOR.config.filebrowserFlashUploadUrl")
+            options[:allowedExtensions] = ["swf"]
+          else
+            options[:action] = JavascriptCode.new("EDITOR.config.filebrowserUploadUrl")
+            options[:allowedExtensions] = Ckeditor.attachment_file_types
+        end
+
+        js_options = ActiveSupport::JSON.encode(options)
+        js_options.gsub!(/"(EDITOR\.config\.filebrowser(Image|Flash|)UploadUrl)"/, '')
+
+        "(function() { new qq.FileUploaderInput(#{js_options}); }).call(this);".html_safe
+      end
+
+</pre>

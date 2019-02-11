@@ -1,0 +1,28 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Using merge on join for records filtering '
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 417
+wordpress_url: http://extazystas.ru/?p=417
+date: '2017-09-12 15:02:34 +0300'
+date_gmt: '2017-09-12 13:02:34 +0300'
+categories:
+- RoR
+- ruby
+tags: []
+comments: []
+---
+{% highlight ruby %}
+# Returns all the accounts that have unread messages.
+  def self.with_unread_messages
+    joins(:messages).merge( Message.unread )
+  end
+{% endhighlight %}

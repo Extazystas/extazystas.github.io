@@ -1,0 +1,24 @@
+---
+layout: post
+status: publish
+published: true
+title: Replace old rocket style ruby hash syntax with ruby-1.9 style bash script
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 412
+wordpress_url: http://extazystas.ru/?p=412
+date: '2016-11-09 10:28:04 +0300'
+date_gmt: '2016-11-09 08:28:04 +0300'
+categories:
+- ruby
+tags: []
+comments: []
+---
+{% highlight ruby %}
+  find . -name \*.rb -exec perl -p -i -e 's/([^:]):(\w+)\s*=>/:/g' {} \;
+{% endhighlight %}

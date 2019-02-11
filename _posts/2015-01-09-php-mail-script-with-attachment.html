@@ -1,0 +1,71 @@
+---
+layout: post
+status: publish
+published: true
+title: php mail() script with attachment
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 360
+wordpress_url: http://extazystas.ru/?p=360
+date: '2015-01-09 22:26:24 +0300'
+date_gmt: '2015-01-09 20:26:24 +0300'
+categories:
+- для общего развития
+tags: []
+comments: []
+---
+<pre>
+<?php
+    if ((isset($_POST['contact_phone']) && !empty($_POST['contact_phone'])) || (isset($_POST['contact_email']) && !empty($_POST['contact_email']))){
+      $tmpName = $_FILES['attachment']['tmp_name'];
+      $fileType = $_FILES['attachment']['type'];
+      $fileName = $_FILES['attachment']['name'];
+
+      $headers = "From: noreply@test.com";
+
+      $message = '<h2>Получено новое сообщение. Данные:</h2><br><br><b>Имя: </b>'.$_POST['contact_name'].'<br><b>Телефон: </b>'.$_POST['contact_phone'].'<br><b>Email: </b>'.$_POST['contact_email']."<br><br><hr><p style='color: #ccc;'>Это письмо автоматическое и не требует ответа.</p><br>";
+
+      if (file($tmpName)) {
+        /* Reading file ('rb' = read binary)  */
+        $file = fopen($tmpName,'rb');
+        $data = fread($file,filesize($tmpName));
+        fclose($file);
+
+        /* a boundary string */
+        $randomVal = md5(time());
+        $mimeBoundary = "==Multipart_Boundary_x{$randomVal}x";
+
+        /* Header for File Attachment */
+        $headers .= "\nMIME-Version: 1.0\n";
+        $headers .= "Content-Type: multipart/mixed;\n" ;
+        $headers .= " boundary=\"{$mimeBoundary}\"";
+
+        /* Multipart Boundary above message */
+        $message = "This is a multi-part message in MIME format.\n\n" .
+        "--{$mimeBoundary}\n" .
+        "Content-Type: text/html; charset=\"iso-8859-1\"\n" .
+        "Content-Transfer-Encoding: 7bit\n\n" .
+        $message . "\n\n";
+
+        /* Encoding file data */
+        $data = chunk_split(base64_encode($data));
+
+        /* Adding attchment-file to message*/
+        $message .= "--{$mimeBoundary}\n" .
+        "Content-Type: {$fileType};\n" .
+        " name=\"{$fileName}\"\n" .
+        "Content-Transfer-Encoding: base64\n\n" .
+        $data . "\n\n" .
+        "--{$mimeBoundary}--\n";
+      }
+
+
+      mail('email@test.com', 'Новое сообщение из формы сайта', $message, $headers);
+    }
+  ?>
+</pre>

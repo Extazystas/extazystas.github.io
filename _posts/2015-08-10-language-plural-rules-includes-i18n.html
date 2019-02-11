@@ -1,0 +1,3551 @@
+---
+layout: post
+status: publish
+published: true
+title: Language plural rules (includes I18n)
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 388
+wordpress_url: http://extazystas.ru/?p=388
+date: '2015-08-10 11:30:00 +0300'
+date_gmt: '2015-08-10 09:30:00 +0300'
+categories:
+- для общего развития
+- RoR
+tags: []
+comments: []
+---
+<p>Table with plural rules:<!--more--></p>
+<table>
+<tbody>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Afrikaans</td>
+<td rowspan="2"><a name="af"></a>af</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Akan</td>
+<td rowspan="2"><a name="ak"></a>ak</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Albanian</td>
+<td rowspan="2"><a name="sq"></a>sq</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Amharic</td>
+<td rowspan="2"><a name="am"></a>am</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="6">Arabic</td>
+<td rowspan="6"><a name="ar"></a>ar</td>
+<td>zero</td>
+<td>0</td>
+<td rowspan="6">zero &rarr; n is 0;<br />
+one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+few &rarr; n mod 100 in 3..10;<br />
+many &rarr; n mod 100 in 11..99;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>one</td>
+<td>1</td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>few</td>
+<td>3-10, 103-110, 203-210...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>11-99, 111-199, 211-299...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>100-102, 200-202, 300-302...;<br />
+0.2, 1.07, 2.94, 3.81, 11.68, 100.55...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Asu</td>
+<td rowspan="2"><a name="asa"></a>asa</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Azerbaijani</td>
+<td><a name="az"></a>az</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Bambara</td>
+<td><a name="bm"></a>bm</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Basque</td>
+<td rowspan="2"><a name="eu"></a>eu</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Belarusian</td>
+<td rowspan="4"><a name="be"></a>be</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-20, 25-30, 35-40...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Bemba</td>
+<td rowspan="2"><a name="bem"></a>bem</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Bena</td>
+<td rowspan="2"><a name="bez"></a>bez</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Bengali</td>
+<td rowspan="2"><a name="bn"></a>bn</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Bihari</td>
+<td rowspan="2"><a name="bh"></a>bh</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Bodo</td>
+<td rowspan="2"><a name="brx"></a>brx</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Bosnian</td>
+<td rowspan="4"><a name="bs"></a>bs</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-20, 25-30, 35-40...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Breton</td>
+<td rowspan="4"><a name="br"></a>br</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 not in 11,71,91;<br />
+two &rarr; n mod 10 is 2 and n mod 100 not in 12,72,92;<br />
+few &rarr; n mod 10 in 3..4,9 and n mod 100 not in 10..19,70..79,90..99;<br />
+many &rarr; n mod 1000000 is 0 and n is not 0;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2, 22, 32, 42, 52, 62...</td>
+</tr>
+<tr>
+<td>few</td>
+<td>3, 4, 9, 23, 24, 29...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 5-8, 10-20, 25-28...;<br />
+1.2, 2.07, 3.94, 5.81...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Bulgarian</td>
+<td rowspan="2"><a name="bg"></a>bg</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Burmese</td>
+<td><a name="my"></a>my</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Catalan</td>
+<td rowspan="2"><a name="ca"></a>ca</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Central Morocco Tamazight</td>
+<td rowspan="2"><a name="tzm"></a>tzm</td>
+<td>one</td>
+<td>0, 1, 11-99</td>
+<td rowspan="2">one &rarr; n in 0..1 or n in 11..99;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-10, 100-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Cherokee</td>
+<td rowspan="2"><a name="chr"></a>chr</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Chiga</td>
+<td rowspan="2"><a name="cgg"></a>cgg</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Chinese</td>
+<td><a name="zh"></a>zh</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Colognian</td>
+<td rowspan="3"><a name="ksh"></a>ksh</td>
+<td>zero</td>
+<td>0</td>
+<td rowspan="3">zero &rarr; n is 0;<br />
+one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>one</td>
+<td>1</td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+0.2, 1.07, 2.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Cornish</td>
+<td rowspan="3"><a name="kw"></a>kw</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Croatian</td>
+<td rowspan="4"><a name="hr"></a>hr</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-20, 25-30, 35-40...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Czech</td>
+<td rowspan="3"><a name="cs"></a>cs</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+few &rarr; n in 2..4;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 5-999;<br />
+1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Danish</td>
+<td rowspan="2"><a name="da"></a>da</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Divehi</td>
+<td rowspan="2"><a name="dv"></a>dv</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Dutch</td>
+<td rowspan="2"><a name="nl"></a>nl</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Dzongkha</td>
+<td><a name="dz"></a>dz</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">English</td>
+<td rowspan="2"><a name="en"></a>en</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Esperanto</td>
+<td rowspan="2"><a name="eo"></a>eo</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Estonian</td>
+<td rowspan="2"><a name="et"></a>et</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Ewe</td>
+<td rowspan="2"><a name="ee"></a>ee</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Faroese</td>
+<td rowspan="2"><a name="fo"></a>fo</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Filipino</td>
+<td rowspan="2"><a name="fil"></a>fil</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Finnish</td>
+<td rowspan="2"><a name="fi"></a>fi</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">French</td>
+<td rowspan="2"><a name="fr"></a>fr</td>
+<td>one</td>
+<td>0, 1, 1.2...</td>
+<td rowspan="2">one &rarr; n within 0..2 and n is not 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Friulian</td>
+<td rowspan="2"><a name="fur"></a>fur</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Fulah</td>
+<td rowspan="2"><a name="ff"></a>ff</td>
+<td>one</td>
+<td>0, 1, 1.2...</td>
+<td rowspan="2">one &rarr; n within 0..2 and n is not 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Galician</td>
+<td rowspan="2"><a name="gl"></a>gl</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Ganda</td>
+<td rowspan="2"><a name="lg"></a>lg</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Georgian</td>
+<td><a name="ka"></a>ka</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">German</td>
+<td rowspan="2"><a name="de"></a>de</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Greek</td>
+<td rowspan="2"><a name="el"></a>el</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Gujarati</td>
+<td rowspan="2"><a name="gu"></a>gu</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Gun</td>
+<td rowspan="2"><a name="guw"></a>guw</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Hausa</td>
+<td rowspan="2"><a name="ha"></a>ha</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Hawaiian</td>
+<td rowspan="2"><a name="haw"></a>haw</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Hebrew</td>
+<td rowspan="2"><a name="he"></a>he</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Hindi</td>
+<td rowspan="2"><a name="hi"></a>hi</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Hungarian</td>
+<td><a name="hu"></a>hu</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Icelandic</td>
+<td rowspan="2"><a name="is"></a>is</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Igbo</td>
+<td><a name="ig"></a>ig</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Inari Sami</td>
+<td rowspan="3"><a name="smn"></a>smn</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Indonesian</td>
+<td><a name="id"></a>id</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Inuktitut</td>
+<td rowspan="3"><a name="iu"></a>iu</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="5">Irish</td>
+<td rowspan="5"><a name="ga"></a>ga</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="5">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+few &rarr; n in 3..6;<br />
+many &rarr; n in 7..10;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>few</td>
+<td>3-6</td>
+</tr>
+<tr>
+<td>many</td>
+<td>7-10</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 11-999;<br />
+1.2, 2.07, 3.94, 7.81, 11.68...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Italian</td>
+<td rowspan="2"><a name="it"></a>it</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Japanese</td>
+<td><a name="ja"></a>ja</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Javanese</td>
+<td><a name="jv"></a>jv</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Jju</td>
+<td rowspan="2"><a name="kaj"></a>kaj</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Kabuverdianu</td>
+<td><a name="kea"></a>kea</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Kabyle</td>
+<td rowspan="2"><a name="kab"></a>kab</td>
+<td>one</td>
+<td>0, 1, 1.2...</td>
+<td rowspan="2">one &rarr; n within 0..2 and n is not 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Kalaallisut</td>
+<td rowspan="2"><a name="kl"></a>kl</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Kannada</td>
+<td><a name="kn"></a>kn</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Kazakh</td>
+<td rowspan="2"><a name="kk"></a>kk</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Khmer</td>
+<td><a name="km"></a>km</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Korean</td>
+<td><a name="ko"></a>ko</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Koyraboro Senni</td>
+<td><a name="ses"></a>ses</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Kurdish</td>
+<td rowspan="2"><a name="ku"></a>ku</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Langi</td>
+<td rowspan="3"><a name="lag"></a>lag</td>
+<td>zero</td>
+<td>0</td>
+<td rowspan="3">zero &rarr; n is 0;<br />
+one &rarr; n within 0..2 and n is not 0 and n is not 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>one</td>
+<td>1, 1.07...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+2.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Lao</td>
+<td><a name="lo"></a>lo</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Latvian</td>
+<td rowspan="3"><a name="lv"></a>lv</td>
+<td>zero</td>
+<td>0</td>
+<td rowspan="3">zero &rarr; n is 0;<br />
+one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-20, 22-30, 32-40...;<br />
+0.2, 1.07, 2.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Lingala</td>
+<td rowspan="2"><a name="ln"></a>ln</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Lithuanian</td>
+<td rowspan="3"><a name="lt"></a>lt</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="3">one &rarr; n mod 10 is 1 and n mod 100 not in 11..19;<br />
+few &rarr; n mod 10 in 2..9 and n mod 100 not in 11..19;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-9, 22-29, 32-39...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 10-20, 30, 40, 50...;<br />
+1.2, 2.07, 10.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Lule Sami</td>
+<td rowspan="3"><a name="smj"></a>smj</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Luxembourgish</td>
+<td rowspan="2"><a name="lb"></a>lb</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Macedonian</td>
+<td rowspan="2"><a name="mk"></a>mk</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="2">one &rarr; n mod 10 is 1 and n is not 11;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-20, 22-30, 32-40...;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Machame</td>
+<td rowspan="2"><a name="jmc"></a>jmc</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Makonde</td>
+<td><a name="kde"></a>kde</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Malagasy</td>
+<td rowspan="2"><a name="mg"></a>mg</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Malay</td>
+<td><a name="ms"></a>ms</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Malayalam</td>
+<td rowspan="2"><a name="ml"></a>ml</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Maltese</td>
+<td rowspan="4"><a name="mt"></a>mt</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="4">one &rarr; n is 1;<br />
+few &rarr; n is 0 or n mod 100 in 2..10;<br />
+many &rarr; n mod 100 in 11..19;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>0, 2-10, 102-110, 202-210...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>11-19, 111-119, 211-219...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>20-101, 120-201, 220-301...;<br />
+1.2, 2.07, 11.94, 20.81...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Manx</td>
+<td rowspan="2"><a name="gv"></a>gv</td>
+<td>one</td>
+<td>0-2, 11, 12, 20-22...</td>
+<td rowspan="2">one &rarr; n mod 10 in 1..2 or n mod 20 is 0;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>3-10, 13-19, 23-30...;<br />
+1.2, 3.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Marathi</td>
+<td rowspan="2"><a name="mr"></a>mr</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Masai</td>
+<td rowspan="2"><a name="mas"></a>mas</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Moldavian</td>
+<td rowspan="3"><a name="mo"></a>mo</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+few &rarr; n is 0 OR n is not 1 AND n mod 100 in 1..19;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>0, 2-19, 101-119, 201-219...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>20-100, 120-200, 220-300...;<br />
+1.2, 2.07, 20.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Mongolian</td>
+<td rowspan="2"><a name="mn"></a>mn</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Nahuatl</td>
+<td rowspan="2"><a name="nah"></a>nah</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Nama</td>
+<td rowspan="3"><a name="naq"></a>naq</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Nepali</td>
+<td rowspan="2"><a name="ne"></a>ne</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">North Ndebele</td>
+<td rowspan="2"><a name="nd"></a>nd</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Northern Sami</td>
+<td rowspan="3"><a name="se"></a>se</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Northern Sotho</td>
+<td rowspan="2"><a name="nso"></a>nso</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Norwegian</td>
+<td rowspan="2"><a name="no"></a>no</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Norwegian Bokm&aring;l</td>
+<td rowspan="2"><a name="nb"></a>nb</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Norwegian Nynorsk</td>
+<td rowspan="2"><a name="nn"></a>nn</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Nyanja</td>
+<td rowspan="2"><a name="ny"></a>ny</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Nyankole</td>
+<td rowspan="2"><a name="nyn"></a>nyn</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Oriya</td>
+<td rowspan="2"><a name="or"></a>or</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Oromo</td>
+<td rowspan="2"><a name="om"></a>om</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Papiamento</td>
+<td rowspan="2"><a name="pap"></a>pap</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Pashto</td>
+<td rowspan="2"><a name="ps"></a>ps</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Persian</td>
+<td><a name="fa"></a>fa</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Polish</td>
+<td rowspan="4"><a name="pl"></a>pl</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="4">one &rarr; n is 1;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n is not 1 and n mod 10 in 0..1 or n mod 10 in 5..9 or n mod 100 in 12..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-21, 25-31, 35-41...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Portuguese</td>
+<td rowspan="2"><a name="pt"></a>pt</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Punjabi</td>
+<td rowspan="2"><a name="pa"></a>pa</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Romanian</td>
+<td rowspan="3"><a name="ro"></a>ro</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+few &rarr; n is 0 OR n is not 1 AND n mod 100 in 1..19;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>0, 2-19, 101-119, 201-219...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>20-100, 120-200, 220-300...;<br />
+1.2, 2.07, 20.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Romansh</td>
+<td rowspan="2"><a name="rm"></a>rm</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Rombo</td>
+<td rowspan="2"><a name="rof"></a>rof</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Root</td>
+<td><a name="root"></a>root</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Russian</td>
+<td rowspan="4"><a name="ru"></a>ru</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-20, 25-30, 35-40...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Rwa</td>
+<td rowspan="2"><a name="rwk"></a>rwk</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Saho</td>
+<td rowspan="2"><a name="ssy"></a>ssy</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Sakha</td>
+<td><a name="sah"></a>sah</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Samburu</td>
+<td rowspan="2"><a name="saq"></a>saq</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Sami Language</td>
+<td rowspan="3"><a name="smi"></a>smi</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Sango</td>
+<td><a name="sg"></a>sg</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Scottish Gaelic</td>
+<td rowspan="4"><a name="gd"></a>gd</td>
+<td>one</td>
+<td>1, 11</td>
+<td rowspan="4">one &rarr; n in 1,11;<br />
+two &rarr; n in 2,12;<br />
+few &rarr; n in 3..10,13..19;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2, 12</td>
+</tr>
+<tr>
+<td>few</td>
+<td>3-10, 13-19</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 20-999;<br />
+1.2, 2.07, 3.94, 20.81...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Sena</td>
+<td rowspan="2"><a name="seh"></a>seh</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Serbian</td>
+<td rowspan="4"><a name="sr"></a>sr</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-20, 25-30, 35-40...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Serbo-Croatian</td>
+<td rowspan="4"><a name="sh"></a>sh</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-20, 25-30, 35-40...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Shambala</td>
+<td rowspan="2"><a name="ksb"></a>ksb</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Shona</td>
+<td rowspan="2"><a name="sn"></a>sn</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Sichuan Yi</td>
+<td><a name="ii"></a>ii</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Skolt Sami</td>
+<td rowspan="3"><a name="sms"></a>sms</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Slovak</td>
+<td rowspan="3"><a name="sk"></a>sk</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+few &rarr; n in 2..4;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 5-999;<br />
+1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Slovenian</td>
+<td rowspan="4"><a name="sl"></a>sl</td>
+<td>one</td>
+<td>1, 101, 201, 301, 401, 501...</td>
+<td rowspan="4">one &rarr; n mod 100 is 1;<br />
+two &rarr; n mod 100 is 2;<br />
+few &rarr; n mod 100 in 3..4;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2, 102, 202, 302, 402, 502...</td>
+</tr>
+<tr>
+<td>few</td>
+<td>3, 4, 103, 104, 203, 204...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 5-100, 105-200, 205-300...;<br />
+1.2, 2.07, 3.94, 5.81...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Soga</td>
+<td rowspan="2"><a name="xog"></a>xog</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Somali</td>
+<td rowspan="2"><a name="so"></a>so</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">South Ndebele</td>
+<td rowspan="2"><a name="nr"></a>nr</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Southern Sami</td>
+<td rowspan="3"><a name="sma"></a>sma</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="3">one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 3-999;<br />
+1.2, 2.07, 3.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Southern Sotho</td>
+<td rowspan="2"><a name="st"></a>st</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Spanish</td>
+<td rowspan="2"><a name="es"></a>es</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Swahili</td>
+<td rowspan="2"><a name="sw"></a>sw</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Swati</td>
+<td rowspan="2"><a name="ss"></a>ss</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Swedish</td>
+<td rowspan="2"><a name="sv"></a>sv</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Swiss German</td>
+<td rowspan="2"><a name="gsw"></a>gsw</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Syriac</td>
+<td rowspan="2"><a name="syr"></a>syr</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="3">Tachelhit</td>
+<td rowspan="3"><a name="shi"></a>shi</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="3">one &rarr; n within 0..1;<br />
+few &rarr; n in 2..10;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-10</td>
+</tr>
+<tr>
+<td>other</td>
+<td>11-999;<br />
+1.2, 2.07, 11.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Tagalog</td>
+<td rowspan="2"><a name="tl"></a>tl</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Tamil</td>
+<td rowspan="2"><a name="ta"></a>ta</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Telugu</td>
+<td rowspan="2"><a name="te"></a>te</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Teso</td>
+<td rowspan="2"><a name="teo"></a>teo</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Thai</td>
+<td><a name="th"></a>th</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Tibetan</td>
+<td><a name="bo"></a>bo</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Tigre</td>
+<td rowspan="2"><a name="tig"></a>tig</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Tigrinya</td>
+<td rowspan="2"><a name="ti"></a>ti</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Tongan</td>
+<td><a name="to"></a>to</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Tsonga</td>
+<td rowspan="2"><a name="ts"></a>ts</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Tswana</td>
+<td rowspan="2"><a name="tn"></a>tn</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Turkish</td>
+<td><a name="tr"></a>tr</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Turkmen</td>
+<td rowspan="2"><a name="tk"></a>tk</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Tyap</td>
+<td rowspan="2"><a name="kcg"></a>kcg</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="4">Ukrainian</td>
+<td rowspan="4"><a name="uk"></a>uk</td>
+<td>one</td>
+<td>1, 21, 31, 41, 51, 61...</td>
+<td rowspan="4">one &rarr; n mod 10 is 1 and n mod 100 is not 11;<br />
+few &rarr; n mod 10 in 2..4 and n mod 100 not in 12..14;<br />
+many &rarr; n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>few</td>
+<td>2-4, 22-24, 32-34...</td>
+</tr>
+<tr>
+<td>many</td>
+<td>0, 5-20, 25-30, 35-40...</td>
+</tr>
+<tr>
+<td>other</td>
+<td>1.2, 2.07, 5.94...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Urdu</td>
+<td rowspan="2"><a name="ur"></a>ur</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Venda</td>
+<td rowspan="2"><a name="ve"></a>ve</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Vietnamese</td>
+<td><a name="vi"></a>vi</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Vunjo</td>
+<td rowspan="2"><a name="vun"></a>vun</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Walloon</td>
+<td rowspan="2"><a name="wa"></a>wa</td>
+<td>one</td>
+<td>0, 1</td>
+<td rowspan="2">one &rarr; n in 0..1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Walser</td>
+<td rowspan="2"><a name="wae"></a>wae</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="6">Welsh</td>
+<td rowspan="6"><a name="cy"></a>cy</td>
+<td>zero</td>
+<td>0</td>
+<td rowspan="6">zero &rarr; n is 0;<br />
+one &rarr; n is 1;<br />
+two &rarr; n is 2;<br />
+few &rarr; n is 3;<br />
+many &rarr; n is 6;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>one</td>
+<td>1</td>
+</tr>
+<tr>
+<td>two</td>
+<td>2</td>
+</tr>
+<tr>
+<td>few</td>
+<td>3</td>
+</tr>
+<tr>
+<td>many</td>
+<td>6</td>
+</tr>
+<tr>
+<td>other</td>
+<td>4, 5, 7-999;<br />
+0.2, 1.07, 2.94, 3.81, 6.68, 4.55...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Western Frisian</td>
+<td rowspan="2"><a name="fy"></a>fy</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Wolof</td>
+<td><a name="wo"></a>wo</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Xhosa</td>
+<td rowspan="2"><a name="xh"></a>xh</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td>Yoruba</td>
+<td><a name="yo"></a>yo</td>
+<td>other</td>
+<td>0-999;<br />
+1.2...</td>
+<td>other &rarr;&nbsp;<em>everything</em></td>
+</tr>
+<tr>
+<th>Language Name</th>
+<th>Code</th>
+<th>Category</th>
+<th>Examples</th>
+<th>Rules</th>
+</tr>
+<tr>
+<td rowspan="2">Zulu</td>
+<td rowspan="2"><a name="zu"></a>zu</td>
+<td>one</td>
+<td>1</td>
+<td rowspan="2">one &rarr; n is 1;<br />
+other &rarr;&nbsp;<em>everything else</em></td>
+</tr>
+<tr>
+<td>other</td>
+<td>0, 2-999;<br />
+1.2, 2.07...</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html" rel="nofollow" target="_blank">link</a></p>

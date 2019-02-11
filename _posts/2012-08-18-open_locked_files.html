@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Открываем файлы, к которым нет доступа в Ubuntu 12.04 '
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 209
+wordpress_url: http://extazystas.ru/?p=209
+date: '2012-08-18 23:26:12 +0300'
+date_gmt: '2012-08-18 21:26:12 +0300'
+categories:
+- ubuntu
+tags: []
+comments:
+- id: 127
+  author: alx
+  author_email: alexkhv@tut.by
+  author_url: ''
+  date: '2012-12-20 22:18:20 +0300'
+  date_gmt: '2012-12-20 20:18:20 +0300'
+  content: а почему бы просто не sudo vim /etc/postgresql/9.1/main/pg_hba.conf
+- id: 128
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2012-12-21 10:14:40 +0300'
+  date_gmt: '2012-12-21 08:14:40 +0300'
+  content: вариант, но не всегда удобно пути находить через терминал. Лучше иметь
+    2 варианта. Но мне было проще так, когда я начинал с linux'ом знакомиться.
+---
+<p>При настойке базы данных Postgresql возникла острая <a title="ссылка на faq" href="https://help.ubuntu.com/10.04/serverguide/postgresql.html" target="_blank">необходимость</a> отредактировать файл&nbsp;&nbsp;<code>/etc/postgresql/9.1/main/pg_hba.conf</code></p>
+<p>Но все попытки заканчивались неудачей - владелец файла Postgres и я открыть его не могу. Тогда я подумал, что было бы неплохо сделать запуск любых файлов от имени администратора - как в Windows. И к моей радости оказалось, что такое решение уже есть. Итак публикую суть:</p>
+<p>Выполняете нижеприведенные команды и у вас в стандартном файловом менеджере Ubuntu 12.04 (Unity) - Nautils'е появляется пункт  "Открыть как администратор". Открываем терминал, поехали:</p>
+<pre>
+sudo add-apt-repository ppa:nae-team/ppa
+sudo apt-get update
+sudo apt-get install nautilus-actions nautilus-actions-extra
+</pre>
+<p>Результат:</p>
+<p><img src="http://s019.radikal.ru/i636/1205/10/e1b759a417e3t.jpg" alt="Открываем lock'нутые файлы в Ubuntu" title="Результат выполнения" /></p>

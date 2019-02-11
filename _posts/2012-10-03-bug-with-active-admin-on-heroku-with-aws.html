@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: Fixed bug with active_admin on heroku with Amazon Web Service (AWS)
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 237
+wordpress_url: http://extazystas.ru/?p=237
+date: '2012-10-03 13:45:32 +0300'
+date_gmt: '2012-10-03 11:45:32 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<h5>Итак, нужно загрузить наши assets на CDN (например Amazon WS). Что делаем:<br />
+<h5>
+<pre>
+#Gemfile
+gem "asset_sync" // нужен для assets:precompile в production'e
+#config/environments/production.rb
+config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
+#Настраиваем Хероку
+heroku config:add AWS_ACCESS_KEY_ID=xxxx
+heroku config:add AWS_SECRET_ACCESS_KEY=xxxx
+heroku config:add FOG_DIRECTORY=xxxx
+heroku config:add FOG_PROVIDER=AWS
+heroku labs:enable user-env-compile -a myappname
+</pre>
+<p>+ 1 строка кода в application.rb file:</p>
+<pre>
+config.assets.initialize_on_precompile = false
+</pre>
+<h5>Пушим - сайт должен заработать. Идем дальше </h5>
+<h4>Проблема!</h4>
+<p><strong>Запушенный сайт на хероку сайт работает, но админка (active_admin) нет. </strong></p>
+<h4>Решение:</h4>
+<pre>
+#Добавляем в production.rb
+config.assets.precompile += %w( active_admin.css active_admin/print.css active_admin.js)
+</pre>
+<h5>Снова пушим и счастье!</h5>

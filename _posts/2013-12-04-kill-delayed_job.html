@@ -1,0 +1,22 @@
+---
+layout: post
+status: publish
+published: true
+title: KILL delayed_job
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 304
+wordpress_url: http://extazystas.ru/?p=304
+date: '2013-12-04 18:15:21 +0300'
+date_gmt: '2013-12-04 16:15:21 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<pre>ps -ef | grep delay | grep -v grep | awk '{print $2}' | xargs kill && rm tmp/pids/*</pre>

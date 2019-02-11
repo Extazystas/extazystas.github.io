@@ -1,0 +1,53 @@
+---
+layout: post
+status: publish
+published: true
+title: Ограничиваем размер фото Lightbox 2
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 89
+wordpress_url: http://extazystas.ru/?p=89
+date: '2012-02-24 14:29:10 +0300'
+date_gmt: '2012-02-24 12:29:10 +0300'
+categories:
+- lightbox
+tags: []
+comments: []
+---
+<p><strong>Суть проблемы:</strong></p>
+<blockquote><p>Когда изображение не обработано, а заливается на сайт напрямую с фотика (к примеру), то его размеры намного больше, чем нам нужно для комфортного просмотра. Например ширина 4000 пикселей. Поэтому нужно ограничить размер по ширине или высоте (только не по обоим одновременно, иначе рискуем потерять пропорции).</p>
+</blockquote>
+<p>Допустим нам <strong>нужно ограничить ширину увеличенной фотографии 700 пикселями</strong>.</p>
+<p><!--more Читать дальше >>--></p>
+<p><strong><span id="more-53"></span></strong></p>
+<p>Открываем файл lightbox.js, находим строку:</p>
+<pre class="wp-code-highlight prettyprint"> imgPreloader.onload = (function(){</pre>
+<p>У меня она под номером 259. Ничего менять не будем в коде, просто добавим условие.</p>
+<p>Исходный код:</p>
+<pre class="wp-code-highlight prettyprint">       imgPreloader.onload = (function(){
+            this.lightboxImage.src = this.imageArray[this.activeImage][0];
+            /*Bug Fixed by Andy Scott*/
+			this.lightboxImage.width = imgPreloader.width;
+            this.lightboxImage.height = imgPreloader.height;
+            /*End of Bug Fix*/
+	    this.resizeImageContainer(imgPreloader.width, imgPreloader.height);
+        }).bind(this);</pre>
+<p>Код на выходе:</p>
+<pre class="wp-code-highlight prettyprint">       imgPreloader.onload = (function(){
+            this.lightboxImage.src = this.imageArray[this.activeImage][0];
+            /*Bug Fixed by Andy Scott*/
+			this.lightboxImage.width = imgPreloader.width;
+            this.lightboxImage.height = imgPreloader.height;
+            /*End of Bug Fix*/
+			if ( imgPreloader.width &amp;gt; 600 ){
+				imgPreloader.height = Math.round( imgPreloader.height * 600 / imgPreloader.width );
+				imgPreloader.width = 600;
+			}
+            this.resizeImageContainer(imgPreloader.width, imgPreloader.height);
+        }).bind(this);</pre>
+<h4>Всё, готово!</h4>

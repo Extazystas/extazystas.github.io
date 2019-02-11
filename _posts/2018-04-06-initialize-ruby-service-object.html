@@ -1,0 +1,54 @@
+---
+layout: post
+status: publish
+published: true
+title: Clean way of initializing service objects in ruby
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 426
+wordpress_url: http://extazystas.ru/?p=426
+date: '2018-04-06 14:30:59 +0300'
+date_gmt: '2018-04-06 12:30:59 +0300'
+categories:
+- RoR
+- ruby
+tags: []
+comments: []
+---
+{% highlight ruby %}
+# service object class
+class FancyObject
+  attr_reader :entity
+
+  def self.perform(params)
+    new(params).perform
+  end
+
+  def perform
+    ApplicationRecord.transaction do
+      # entity processing logic here
+
+      entity.save
+      entity
+    end
+  end
+
+  private
+
+  def initialize(params)
+    @entity   = Entity.new(params)
+  end
+end
+
+# controller:
+@entity = FancyObject.perform(entity_params)
+
+if @entity.valid?
+  #...
+end
+{% endhighlight %}

@@ -1,0 +1,34 @@
+---
+layout: post
+status: publish
+published: true
+title: Install phantomjs on Ubuntu 12.04 (or 14.04)
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 316
+wordpress_url: http://extazystas.ru/?p=316
+date: '2014-04-21 22:07:25 +0300'
+date_gmt: '2014-04-21 20:07:25 +0300'
+categories:
+- ubuntu
+tags: []
+comments: []
+---
+<pre>
+cd /usr/local/share
+sudo wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
+sudo tar xjf phantomjs-1.9.7-linux-x86_64.tar.bz2
+sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/share/phantomjs
+sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+sudo ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
+</pre>
+<p>Now you can check installed version with following command:</p>
+<pre>
+$ phantomjs -v
+=> 1.9.7
+</pre>

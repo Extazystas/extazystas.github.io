@@ -1,0 +1,34 @@
+---
+layout: post
+status: publish
+published: true
+title: Sort ruby hash by value
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 319
+wordpress_url: http://extazystas.ru/?p=319
+date: '2014-06-03 19:58:13 +0300'
+date_gmt: '2014-06-03 17:58:13 +0300'
+categories:
+- RoR
+tags: []
+comments: []
+---
+<pre>
+hash = {
+  'Ivan' => 4,
+  'Peter' => 2,
+  'John' => 10
+}
+
+sorted_array = hash.sort_by { |_, count| -count }
+sorted_hash = sorted_array.to_h
+=> [["John", 10], ["The Ivan", 4], ["Peter", 2]]
+sorted_hash = sorted_array.to_h
+=> {"John"=>10, "Ivan"=>4, "Peter"=>2} 
+</pre>

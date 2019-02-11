@@ -1,0 +1,26 @@
+---
+layout: post
+status: publish
+published: true
+title: If .gitignore not working - remove cache
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 338
+wordpress_url: http://extazystas.ru/?p=338
+date: '2014-06-24 10:31:34 +0300'
+date_gmt: '2014-06-24 08:31:34 +0300'
+categories:
+- git
+tags: []
+comments: []
+---
+<pre>
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
+</pre>

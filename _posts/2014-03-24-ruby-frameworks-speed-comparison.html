@@ -1,0 +1,91 @@
+---
+layout: post
+status: publish
+published: true
+title: Ruby frameworks speed comparison (rails, sinatra, padrino, goliath)
+author:
+  display_name: z1m
+  login: z1m
+  email: z1m@tut.by
+  url: ''
+author_login: z1m
+author_email: z1m@tut.by
+wordpress_id: 306
+wordpress_url: http://extazystas.ru/?p=306
+date: '2014-03-24 16:15:47 +0300'
+date_gmt: '2014-03-24 14:15:47 +0300'
+categories:
+- для общего развития
+- RoR
+- ubuntu
+tags: []
+comments:
+- id: 185
+  author: Estelle
+  author_email: estellecastellanos@aol.com
+  author_url: http://twitter.com/datascribes
+  date: '2014-07-18 13:54:40 +0300'
+  date_gmt: '2014-07-18 11:54:40 +0300'
+  content: "Hi! Would you mind if I share your blog with my twitter group?\r\nThere's
+    a lot of people that I think would really enjoy \r\nyour content. Please let me
+    know. Thank you"
+- id: 186
+  author: z1m
+  author_email: z1m@tut.by
+  author_url: ''
+  date: '2014-07-20 20:49:51 +0300'
+  date_gmt: '2014-07-20 18:49:51 +0300'
+  content: of course not, do it if you wish.
+- id: 194
+  author: Виктор
+  author_email: sbvitok@gmail.com
+  author_url: ''
+  date: '2014-10-23 11:10:44 +0300'
+  date_gmt: '2014-10-23 09:10:44 +0300'
+  content: "Приветсвую, я не хочу ничего плохого сказать по поводу тестов, но сравнение
+    получилось мягкого с пушистым.\r\n\r\nRails в development окружение кеширует очень
+    много чего. в том числе и шаблоны slim-а\r\n\r\nPadrino в development окружение
+    не кеширует ничего, именно поэтому разробы заявляют, что не нужно вебсервер рестартить
+    во время разработки. И все настройки которые были включены для кеширования, по
+    факту работают только в production окружении.\r\n\r\nВ итоге у вас получается,
+    что в рельсах шаблоны slim-а в 3 раз быстрее работают чем в Padrino из-за того
+    что рельсы даже в девел окружение кешируют очень много чего.\r\n\r\nДа и вообще,
+    кого интересует производительность devel окружения? \r\n\r\nСделайте тесты в production
+    окружении, тогда будет о чем поговорить."
+---
+<h4>I have done some simple tests on some ruby frameworks - Rails, Sinatra, Padrino and Goliath.</h4>
+<p>There are testing environment:</p>
+<ul>
+<li>Ubuntu 12.04</li>
+<li>CPU Core i5 3450</li>
+<li>DDR3 8GB 1333 MHz</li>
+<li>HDD 500 Gb</li>
+<li>ENV=development</li>
+<li>MySQL Version: 5.5.35</li>
+<li>ApacheBench, Version 2.3</li>
+<li>Ruby version: 2.1.0</li>
+<li>Rails version: 4.0.2</li>
+<li>Sinatra: 1.4.4</li>
+<li>Padrino 0.11.4</li>
+<li>Goliath 1.0.2</li>
+</ul>
+<p><strong>Testing scenarios:</strong></p>
+<ol>
+<li>No Views and DB</li>
+<li>Views (Slim)</li>
+<li>MySQL*</li>
+<li>Views (Slim) + MySQL*</li>
+</ol>
+<p>* As a DB adapter I've used Sequel (simple load record column from DB)</p>
+<p>Testing was done with ApacheBench 2.3 (ab -n 1000 -c 100 http://localhost:PORT/)</p>
+<p><!--more--></p>
+<p>Resulting graphs (time in seconds shows how much time was needed for passing test):</p>
+<p><img src="http://extazystas.ru/wp-content/uploads/2014/03/all_no_view_no_db.png" alt="No Views and No DB" width="1000" height="800" /></p>
+<p><img src="http://extazystas.ru/wp-content/uploads/2014/03/all_slim.png" alt="Views(slim)" width="1000" height="800" /></p>
+<p><img src="http://extazystas.ru/wp-content/uploads/2014/03/all_mysql.png" alt="Mysql" width="1000" height="800" /></p>
+<p><img src="http://extazystas.ru/wp-content/uploads/2014/03/all_mysql_slim.png" alt="Mysql + Views (Slim)" width="1000" height="800" /></p>
+<h4>Sinatra with different web-servers:</h4>
+<p><img src="http://extazystas.ru/wp-content/uploads/2014/03/sinatra_webrick.png" alt="Webrick" width="1000" height="800" /></p>
+<p><img src="http://extazystas.ru/wp-content/uploads/2014/03/sinatra_thin.png" alt="Thin" width="1000" height="800" /></p>
+<p><img src="http://extazystas.ru/wp-content/uploads/2014/03/sinatra_unicorn.png" alt="Unicorn" width="1000" height="889" /></p>
+<h3>Conclusion: We can see that Padrino showed a good result - so you can easily use it (it has MVC structure like rails) for non-large web project. Sinatra was very similar to padrino, Rails was very good too and Goliath showed the worst result.&nbsp;Hope this helps you with choosing the Ruby framework.<span style="font-size: 1.17em; font-weight: normal;">&nbsp;</span></h3>
