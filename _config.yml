@@ -4,8 +4,8 @@ email: extazystas@gmail.com
 author: Stanislav Knyazev
 description: >- # this means to ignore newlines until "baseurl:"
   Stanislav Knyazev personal developer's blog about programming in ruby, javascript and so on. Contains of useful tips not to forget.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://extazystas.ru" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "extazystas.ru" # the subpath of your site, e.g. /blog
+url: "https://extazystas.ru" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: extazystas
 
 pagination:
