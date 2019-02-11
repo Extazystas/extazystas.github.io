@@ -12,7 +12,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 permalink: /articles/:year/:month/:title
 timezone: Europe/Minsk
 excerpt_separator: <!--more-->  # you can specify your own separator, of course.
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'UploadToGithub.Rakefile', 'README.md']
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'UploadToGithub.Rakefile', 'README.md', 'CNAME']
 safe: false
 post:
   template: _post.txt
@@ -24,22 +24,23 @@ git:
 #   settings: -av
 #   source: _site/
 #   destination: ~/Git/extazystas.github.com/
-plugins: [jekyll-paginate-v2, github-pages]
+plugins: [jekyll-paginate, github-pages]
 
 # Build settings
 plugins_dir:
-  - jekyll-paginate-v2
+  - jekyll-paginate
   - github-pages
 exclude:
   - Gemfile
   - Gemfile.lock
-
-pagination:
-  enabled: true
-  per_page: 5
-  offset: 2
-  permalink: '/page/:num/'
-  title: ':title - page :num of :max'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
+paginate: 10
+paginate_path: '/page/:num/'
+# pagination:
+#   enabled: true
+#   per_page: 5
+#   offset: 2
+  # permalink: '/page/:num/'
+#   title: ':title - page :num of :max'
+#   limit: 0
+#   sort_field: 'date'
+#   sort_reverse: true

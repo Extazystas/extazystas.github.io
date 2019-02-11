@@ -20,7 +20,7 @@ tags: []
 comments: []
 ---
 <p>Создаем сниппет с именем <b>phx:character_limit</b></p>
-{% highlight javascript %}
+{% highlight php %}
 <?php
 if (strlen($output) > $options) {
   $output_cutted = substr($output, 0, $options);
@@ -52,6 +52,6 @@ if (strlen($output) > $options) {
 return $output;
 ?>{% endhighlight %}
 <p>Пример вызова:</p>
-{% highlight javascript %}
+{% highlight php %}
 [+content:character_limit=`300`+]
 {% endhighlight %}
