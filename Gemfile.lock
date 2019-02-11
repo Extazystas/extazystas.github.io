@@ -245,10 +245,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (~> 193)
-  jekyll-feed (~> 0.6)
   jekyll-paginate-v2
-  rouge
-  tzinfo-data
 
 BUNDLED WITH
    2.0.1
