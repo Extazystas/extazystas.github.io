@@ -20,7 +20,7 @@ tags: []
 comments: []
 ---
 <p>path_to_gem/lib/ckeditor/utils.rb:39</p>
-<pre>  
+{% highlight javascript %}
 def js_fileuploader(uploader_type, options = {})
         options = { :multiple => true, :element => "fileupload" }.merge(options)
 
@@ -42,4 +42,4 @@ def js_fileuploader(uploader_type, options = {})
         "(function() { new qq.FileUploaderInput(#{js_options}); }).call(this);".html_safe
       end
 
-</pre>
+{% endhighlight %}

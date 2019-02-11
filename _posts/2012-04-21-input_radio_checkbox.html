@@ -59,7 +59,7 @@ comments:
 <p><strong><!--more Читать дальше >>--></strong><br />
 <a align="center" href="http://extazystas.ru/wp-content/uploads/2012/04/radioinput1.jpg"><img class="size-full wp-image-165" title="" align="center" src="http://extazystas.ru/wp-content/uploads/2012/04/radioinput1.jpg" alt="" width="314" height="200" /></a></p>
 <p>Для начала нужно немного переделать стандарный HTML код:</p>
-<pre>
+{% highlight javascript %}
  <input type='radio' id='Choice1' name='Choice'>
  <label for='Choice1'>Первый выбор</label><br>
 
@@ -71,9 +71,9 @@ comments:
 
  <input type='radio' id='Choice4' name='Choice'>
  <label for='Choice4'>Четвертый выбор</label><br>
-</pre>
+{% endhighlight %}
 <p>Затем в CSS пишем: </p>
-<pre>
+{% highlight javascript %}
 body:not(#Foo) label
   {padding:2px 0px 2px 20px;}
 
@@ -85,7 +85,7 @@ body:not(#Foo) input[type=radio] + label
 
 body:not(#Foo) input[type=radio]:checked + label
   {background:url({включенная кнопка}) no-repeat 0px 0px;}
-</pre>
+{% endhighlight %}
 <p><strong>Как это работает?</strong></p>
 <p>
 1. Во-первых, в HTML существует специальный элемент &laquo;label&raquo;, который можно назначить любому элементу формы, и щелчок по которому будет соответствовать щелчку по элементу формы.</p>

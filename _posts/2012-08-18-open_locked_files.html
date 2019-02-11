@@ -37,10 +37,10 @@ comments:
 <p>При настойке базы данных Postgresql возникла острая <a title="ссылка на faq" href="https://help.ubuntu.com/10.04/serverguide/postgresql.html" target="_blank">необходимость</a> отредактировать файл&nbsp;&nbsp;<code>/etc/postgresql/9.1/main/pg_hba.conf</code></p>
 <p>Но все попытки заканчивались неудачей - владелец файла Postgres и я открыть его не могу. Тогда я подумал, что было бы неплохо сделать запуск любых файлов от имени администратора - как в Windows. И к моей радости оказалось, что такое решение уже есть. Итак публикую суть:</p>
 <p>Выполняете нижеприведенные команды и у вас в стандартном файловом менеджере Ubuntu 12.04 (Unity) - Nautils'е появляется пункт  "Открыть как администратор". Открываем терминал, поехали:</p>
-<pre>
+{% highlight javascript %}
 sudo add-apt-repository ppa:nae-team/ppa
 sudo apt-get update
 sudo apt-get install nautilus-actions nautilus-actions-extra
-</pre>
+{% endhighlight %}
 <p>Результат:</p>
 <p><img src="http://s019.radikal.ru/i636/1205/10/e1b759a417e3t.jpg" alt="Открываем lock'нутые файлы в Ubuntu" title="Результат выполнения" /></p>

@@ -21,10 +21,10 @@ tags: []
 comments: []
 ---
 <p>For example, If you need only 1 admin on each project.</p>
-<pre>
+{% highlight ruby %}
 class AddUsers < ActiveRecord::Migration[5.1]
   def change
-	create_table :users do |t|
+    create_table :users do |t|
       t.integer :project_id, null: false
       t.string :name, null: false
       t.integer :role, null: false
@@ -49,4 +49,4 @@ class AddUsers < ActiveRecord::Migration[5.1]
     end
   end
 end
-</pre>
+{% endhighlight %}

@@ -20,7 +20,7 @@ tags: []
 comments: []
 ---
 <p>HTML:</p>
-<pre>
+{% highlight javascript %}
 <div id="slider">
   <a href="#" class="control_next">>></a>
   <a href="#" class="control_prev"><</a>
@@ -29,16 +29,16 @@ comments: []
     <li style="background: #aaa;">SLIDE 2</li>
     <li>SLIDE 3</li>
     <li style="background: #aaa;">SLIDE 4</li>
-  </ul>  
+  </ul>
 </div>
 
 <div class="slider_option">
   <input type="checkbox" id="checkbox">
   <label for="checkbox">Autoplay Slider</label>
-</div> 
-</pre>
+</div>
+{% endhighlight %}
 <p>CSS:</p>
-<pre>#slider {
+{% highlight javascript %}#slider {
   position: relative;
   overflow: hidden;
   margin: 20px auto 0 auto;
@@ -102,9 +102,9 @@ a.control_next {
   margin: 10px auto;
   width: 160px;
   font-size: 18px;
-}</pre>
+}{% endhighlight %}
 <p>JS:</p>
-<pre>jQuery(document).ready(function ($) {
+{% highlight javascript %}jQuery(document).ready(function ($) {
 
   $('#checkbox').change(function(){
     setInterval(function () {
@@ -149,5 +149,5 @@ a.control_next {
         moveRight();
     });
 
-});</pre>
+});{% endhighlight %}
 <p>Original: http://codepen.io/zuraizm/pen/vGDHl</p>

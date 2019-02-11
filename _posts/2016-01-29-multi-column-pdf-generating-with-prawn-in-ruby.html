@@ -26,7 +26,7 @@ comments: []
 <p>Prawn has very useful methodfor doing that called 'column_box'.</p>
 {% highlight ruby %}
 # Example of 2 columns table with some styling
-def render_left_products_list
+  def render_left_products_list
     column_box([-5, cursor], columns: 2, height: cursor, position: :left, width: bounds.width, spacer: 40) do
 
       @categories.each do |category|

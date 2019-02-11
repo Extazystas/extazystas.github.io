@@ -53,7 +53,7 @@ comments:
 <p><a href="http://extazystas.ru/wp-content/uploads/2012/04/strict_url_01.jpg" rel='lightbox'><img src="http://extazystas.ru/wp-content/uploads/2012/04/strict_url_01.jpg" alt="MODx Revo strict url" title="strict_url_01" width="540"  class="alignleft size-full wp-image-128" /></a></p>
 <p>Сам сниппет можно скачать <a href="http://extazystas.ru/wp-content/uploads/2012/04/strict_url.txt" target="_blank">здесь</a>.</p>
 <p>Привожу его код:</p>
-<pre>
+{% highlight javascript %}
 <?php
 /* Snippet for MODx Revolution/Сниппет для MODx Revolution
 // Strict URL/Строгие URL
@@ -161,10 +161,10 @@ else // если нет дочерних
 	}
 }
 ?>
-</pre>
+{% endhighlight %}
 <p><strong>ВАЖНО:</strong></p>
 <p>У меня в MODx настроены дружественные URL (friendly URLs) делал под них (для SEO дружественные URL &mdash; большой плюс при продвижении в Яндексе). Без них (дружественных УРЛов) сниппет будет работать только после некоторых доработок на проверку наличия Псевдонима у ресурса. Дружественные URL настраиваются в общих настройках системы MODx Revolution.</p>
 <p>Что действительно необходимо для корректной работы этого сниппета, так это прописанные для всех ресурсов Псевдонимы (alias&rsquo;ы) по ним сниппет определяет какой URL является правильным.</p>
 <p>Также <strong>для избежания ошибок вызов сниппета должен быть некэшируемым</strong>: [[!strict_url]]</p>
 <p>Помимо этого, когда будете вставлять код сниппета, проследите, чтобы не было ни одного пробела ни перед
-<pre>"<?php", ни перед "?>" - иначе может "поползти" вёрстка.</pre></p>
+{% highlight javascript %}"<?php", ни перед "?>" - иначе может "поползти" вёрстка.{% endhighlight %}</p>

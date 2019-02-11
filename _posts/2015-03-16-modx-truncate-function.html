@@ -20,26 +20,26 @@ tags: []
 comments: []
 ---
 <p>Создаем сниппет с именем <b>phx:character_limit</b></p>
-<pre>
+{% highlight javascript %}
 <?php
-if (strlen($output) > $options) { 
-  $output_cutted = substr($output, 0, $options); 
-  $last_space = strrpos($output_cutted, " "); 
-  $output = substr($output_cutted, 0, $last_space) . " ..."; 
+if (strlen($output) > $options) {
+  $output_cutted = substr($output, 0, $options);
+  $last_space = strrpos($output_cutted, " ");
+  $output = substr($output_cutted, 0, $last_space) . " ...";
         preg_match_all('#<([a-z]+)(?: .*)?(?<![/|/ ])>#iU', $output, $result);
     $openedtags = $result[1];
-    
+
     #put all closed tags into an array
     preg_match_all('#</([a-z]+)>#iU', $output, $result);
     $closedtags = $result[1];
     $len_opened = count($openedtags);
-    
+
     # all tags are closed
     if (count($closedtags) == $len_opened) {
         return $output;
     }
     $openedtags = array_reverse($openedtags);
-    
+
     # close tags
     for ($i=0; $i < $len_opened; $i++) {
         if (!in_array($openedtags[$i], $closedtags)){
@@ -50,8 +50,8 @@ if (strlen($output) > $options) {
     }
   }
 return $output;
-?></pre>
+?>{% endhighlight %}
 <p>Пример вызова:</p>
-<pre>
+{% highlight javascript %}
 [+content:character_limit=`300`+]
-</pre>
+{% endhighlight %}

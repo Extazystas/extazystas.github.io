@@ -22,6 +22,7 @@ comments: []
 ---
 <p>I getting BASE64_IMAGE_GOES_HERE from signature_pad js lib with getSignatureImage() method.</p>
 {% highlight ruby %}
+
   def render
     pdf = Prawn::Document
     pdf.image StringIO.new(Base64.decode64(splitBase64(BASE64_IMAGE_GOES_HERE)[:data])), at: [10, cursor - 50], width: 200, height: 125

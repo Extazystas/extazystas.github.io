@@ -19,7 +19,7 @@ categories:
 tags: []
 comments: []
 ---
-<pre>
+{% highlight javascript %}
 hash = {
   'Ivan' => 4,
   'Peter' => 2,
@@ -30,5 +30,5 @@ sorted_array = hash.sort_by { |_, count| -count }
 sorted_hash = sorted_array.to_h
 => [["John", 10], ["The Ivan", 4], ["Peter", 2]]
 sorted_hash = sorted_array.to_h
-=> {"John"=>10, "Ivan"=>4, "Peter"=>2} 
-</pre>
+=> {"John"=>10, "Ivan"=>4, "Peter"=>2}
+{% endhighlight %}

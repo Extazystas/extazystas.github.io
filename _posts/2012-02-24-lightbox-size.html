@@ -26,19 +26,24 @@ comments: []
 <p><!--more Читать дальше >>--></p>
 <p><strong><span id="more-53"></span></strong></p>
 <p>Открываем файл lightbox.js, находим строку:</p>
-<pre class="wp-code-highlight prettyprint"> imgPreloader.onload = (function(){</pre>
+{% highlight javascript %}
+imgPreloader.onload = (function(){
+{% endhighlight %}
 <p>У меня она под номером 259. Ничего менять не будем в коде, просто добавим условие.</p>
 <p>Исходный код:</p>
-<pre class="wp-code-highlight prettyprint">       imgPreloader.onload = (function(){
+{% highlight javascript %}
+      imgPreloader.onload = (function(){
             this.lightboxImage.src = this.imageArray[this.activeImage][0];
             /*Bug Fixed by Andy Scott*/
 			this.lightboxImage.width = imgPreloader.width;
             this.lightboxImage.height = imgPreloader.height;
             /*End of Bug Fix*/
 	    this.resizeImageContainer(imgPreloader.width, imgPreloader.height);
-        }).bind(this);</pre>
+        }).bind(this);
+{% endhighlight %}
 <p>Код на выходе:</p>
-<pre class="wp-code-highlight prettyprint">       imgPreloader.onload = (function(){
+{% highlight javascript %}
+      imgPreloader.onload = (function(){
             this.lightboxImage.src = this.imageArray[this.activeImage][0];
             /*Bug Fixed by Andy Scott*/
 			this.lightboxImage.width = imgPreloader.width;
@@ -49,5 +54,6 @@ comments: []
 				imgPreloader.width = 600;
 			}
             this.resizeImageContainer(imgPreloader.width, imgPreloader.height);
-        }).bind(this);</pre>
+        }).bind(this);
+{% endhighlight %}
 <h4>Всё, готово!</h4>

@@ -85,34 +85,34 @@ comments:
 <p>Отлично, для этого существует замечательный кит <a href="http://railsinstaller.org/" rel=nofollow">Railsinstaller</a>, которые помогает избежать траты времени и сил при установке SQL, Git и т.д....<br />
 Установили, ввели в консоль своё имя и e-mail - появляется куча ошибок в консоли, но RoR Вроде как установлен. </p>
 <p>Проверяем:</p>
-<pre>
+{% highlight javascript %}
 rails new ProjectName
-</pre>
+{% endhighlight %}
 <p><strong><!--more Читать дальше >>--></strong></p>
 <p>Создается проект (набор папочек и файлов) - обычно в C:/Sites<br />
 Пробуем зайти на http://localhost:3000 и... страница не найдена.<br />
 пишем в консоли</p>
-<pre>
+{% highlight javascript %}
 cd Project name
-</pre>
+{% endhighlight %}
 <p>Затем оказываемся в папке C:/Sites/Projectname<br />
 пишем: </p>
-<pre>
+{% highlight javascript %}
 rails server
-</pre>
+{% endhighlight %}
 <p>Консоль выводит нам:</p>
-<pre>
+{% highlight javascript %}
 &larr;[31mCould not find gem 'jquery-rails (= 2.0.0) x86-mingw32' in any of the gem sources listed in your Gemfile.&larr;[0m
-&larr;[33mRun `bundle install` to install missing gems.&larr;[0m
-</pre>
+&larr;[33mRun <code>bundle install</code> to install missing gems.&larr;[0m
+{% endhighlight %}
 <p>Скачиваем гемы bundle и jquery-rails с сайта <a href="http://rubygems.org/" rel="nofollow">http://rubygems.org/</a><br />
 Дальше самое важное! <br />
 1) Закидываем скачанные файлы в папку C:/Users/USERNAME - где USERNAME - имя вашего профиля в Windows.<br />
 2) Пишем в консоли SET HOME=%USERPROFILE% (где USERPROFILE = USERNAME = имя вашего профиля в системе - на кириллице не проверял (лучше используйте латиницу для имени своего профиля).<br />
 3) пишем в консоли: </p>
-<pre>
+{% highlight javascript %}
 gem install bundle
 После его установки пишем:
 gem install jquery-rails
-</pre>
+{% endhighlight %}
 <p>4) Все! После установки гема выполняем команду rails server из папки нашего проекта и заходим на Localhost:3000</p>

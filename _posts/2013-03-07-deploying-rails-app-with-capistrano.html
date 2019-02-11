@@ -23,22 +23,22 @@ comments: []
 <p>В продолжение к предыдущей записи.</p>
 <h6>Сервер мы настроили, но нужно деплоить приложение с локальной машины, а не делать все вручную на сервере.</h6>
 <p>Конечно, наше приложение должно быть запушено на github. Ставим гем capistrano в нашу прилагу. </p>
-<pre>
+{% highlight javascript %}
 # Deploy with Capistrano
 group :development do
   gem 'capistrano'
   gem 'rvm-capistrano' # нужен для корректной работы с rvm
 end
-</pre>
+{% endhighlight %}
 <p>Далее в терминале:<br />
 <!--more--></p>
-<pre>
+{% highlight javascript %}
 $ bundle install
 $ capify .
-</pre>
+{% endhighlight %}
 <p>У нас появится файл в config/deploy.rb<br />
 Вот он и нужен для настройки деплоя. Приведу здесь примерное его содержимое из тестового приложения:</p>
-<pre>
+{% highlight javascript %}
 require 'rvm/capistrano'
 require 'bundler/capistrano'
 
@@ -59,19 +59,19 @@ set :branch, 'master'
 set :deploy_to, "/home/server_username/APP_NAME"
 server 'SERVER_IP', :web, :app, :db, :primary => true
 
-</pre>
+{% endhighlight %}
 <p>Деплоим:</p>
-<pre>$ cap deploy</pre>
+{% highlight javascript %}$ cap deploy{% endhighlight %}
 <p>После деплоя  наше приложение на сервере будет иметь следующую структуру:</p>
-<pre>
+{% highlight javascript %}
 root@server_name:~$ cd  APP_NAME
-$ ls -l 
+$ ls -l
 - current # здесь находится наше приложение
 - releases
 - shared
-</pre>
+{% endhighlight %}
 <p>Нужно зайти в папку shared и создать там директорию config, положив туда нужный database.yml файл, затем добавить в конец файла deploy.rb след. таск:</p>
-<pre>
+{% highlight javascript %}
 after "deploy:update_code", :symlink_config_files
 
 task :symlink_config_files do
@@ -81,12 +81,12 @@ task :symlink_config_files do
   run symlinks.map { |from, to| "ln -nfs #{from} #{to}" }.join(" && ")
   run "chmod -R g+rw #{release_path}/public"
 end
-</pre>
+{% endhighlight %}
 <p>Как видно из этого конфига, у нас есть symlink_config_files таск, который тянет файл database.yml из папки shared в папку current, где и находится наше приложение.</p>
 <p>На этом всё.<br />
 Также рекомендую добавить на сервер свой ssh ключ, чтобы не вводить каждый раз пароль.</p>
-<pre>
+{% highlight javascript %}
 $ cd ~/.ssh
 $ vim known_hosts # создаем файл knows_hosts, в него нужно скопировать ssh ключ с локальной машины (без пробелов и переносов строк)
 не забудьте выставить нужные права на чтение данного файла.
-</pre>
+{% endhighlight %}

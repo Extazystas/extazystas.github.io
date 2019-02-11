@@ -21,11 +21,11 @@ tags: []
 comments: []
 ---
 <p>In your terminal, enter:</p>
-<pre>
+{% highlight javascript %}
 sudo gedit /usr/share/applications/sublime.desktop
-</pre>
+{% endhighlight %}
 <p>In open file you should enter next content:</p>
-<pre>
+{% highlight javascript %}
 [Desktop Entry]
 Version=1.0
 Name=Sublime Text 3
@@ -44,6 +44,6 @@ X-Ayatana-Desktop-Shortcuts=NewWindow
 Name=New Window
 Exec=sublime -n
 TargetEnvironment=Unity
-</pre>
+{% endhighlight %}
 <p><strong>If it's not working correct, replace 'sublime' with you shortcut for Sublime text (for my Sublime text 3 I have 'subl', instead 'sublime')<br />
 Hopefully now Sublime Text 2 or 3 will work fine from your right click context menu.</p>

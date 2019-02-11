@@ -20,6 +20,6 @@ tags: []
 comments: []
 ---
 <p><strong>If you wanna see list of all your models in your rails app, run the next command in rails console:</strong></p>
-<pre>
+{% highlight javascript %}
 > ActiveRecord::Base.send(:subclasses).map(&:name)
-</pre>
+{% endhighlight %}

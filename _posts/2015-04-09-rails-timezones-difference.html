@@ -22,7 +22,7 @@ comments: []
 <ul>
 <li>In Rails, Time.zone refers to the Rails (not system) timezone, set by config.time_zone (typically in application.rb)</li>
 <li>DateTime and Time are not otherwise Rails aware, therefore, DateTime.now and Time.now both return times in the system timezone.</li>
-<li>1.month.ago and similar methods use the Rails timezone, but DateTime.now.last_month uses the system timezone</li>
+<li><code>1.month.ago</code> and similar methods use the Rails timezone, but DateTime.now.last_month uses the system timezone</li>
 <li>When retrieving things from ActiveRecord, they will be timezoned to the Rails timezone, so Product.first.created_at will give you a time in the Rails timezone (not the system timezone)</li>
 </ul>
 <p>So, don't mix Rails timezone methods like &ldquo;1.month.ago&rdquo; with system timezone methods like &ldquo;DateTime.now.last_month&rdquo;</p>

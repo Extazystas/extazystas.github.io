@@ -20,7 +20,7 @@ tags: []
 comments: []
 ---
 <h5>If you need to delegate method to a custom class (not AR) and pass object as parameter to this class, you can use next code:</h5>
-<pre>
+{% highlight javascript %}
 class One < ActiveRecord::Base
   # ...
   delegate :some_method, to: :name_for_the_class
@@ -29,4 +29,4 @@ class One < ActiveRecord::Base
     @delegator ||= ::ClassToDelegate.new(self)
   end
 end
-</pre>
+{% endhighlight %}

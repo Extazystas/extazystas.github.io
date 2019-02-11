@@ -22,11 +22,11 @@ comments: []
 <h5>В общем, после перехода с sqlite3 на mysql2 БД возникла такая проблема: все русские символы сохранялись в виде знаков вопроса. Решение удалось получить, но потратил на это весь вечер. Пишу сюда, чтобы самому не забыть и кому-нибудь помочь.</h5>
 <p>Суть в том, что мы просто удаляем нашу базу данных и создаем такую же, только с правильной кодировкой (хотя по умолчанию mysql должен делать это сам).</p>
 <p><strong>WARNING: ЭТО УДАЛИТ ВСЕ СОДЕРЖИМОЕ ВАШЕЙ ТАБЛИЦЫ</strong></p>
-<p><PRE><br />
+<p>{% highlight javascript %}<br />
 $ mysql -u USER -p<br />
 mysql > drop database YOURDB_NAME_development;<br />
 mysql > create database YOURDB_NAME_development CHARACTER SET utf8 COLLATE utf8_general_ci;<br />
 mysql > \q<br />
 $ rake db:migrate
-</pre>
+{% endhighlight %}
 <p>Готово! Таблица готова к новому "кириллическому" содержимому. Это относится не только к Rails, а везде, где Вы используете Mysql</p>

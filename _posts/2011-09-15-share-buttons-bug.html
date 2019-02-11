@@ -67,12 +67,12 @@ comments:
 <span style="color: red; margin-left: 5px;"><strong>Решение проблемы:</strong></span></span></p>
 <p style="margin-left: 20px;">Заходим в ваш шаблон вордпресс-темы, например <strong>wp-content/themes/twentyten</strong>&nbsp;и открываем файл Header.php. Далее перед закрывающим тэгом </head> вставляем </p>
 <p>&nbsp;</p>
-<pre>
+{% highlight javascript %}
 <?php
 for ($i = 1; $i <= 999; $i++) {
 echo "<style>#vk_like_".$i." {margin-bottom:12px;}</style>";
 }
 ?>
-</pre>
+{% endhighlight %}
 <p><span style="font-size: 16px;"><strong>Результат:&nbsp;</strong></span></p>
 <p><img src="http://extazystas.ru/wp-content/uploads/share_works.jpg" alt="" width="216" height="119" /></p>

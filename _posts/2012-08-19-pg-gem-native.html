@@ -22,16 +22,16 @@ comments: []
 <h5>Данная проблема возникает при установке некоторых gem-файлов, в частности pg гема для БД Postgre SQL, которая нужна для развертывания приложения на heroku. </h5>
 <p>Мне нужен pg гем для деплоя файлов на heroku, но я не хочу использовать postrgresql на стадии разработки (development-side).</p>
 <p>Благо помог интернет и в течении дня я нашел решение.</p>
-<pre>
+{% highlight javascript %}
 1) Не устанавливать гемы из продакш группы (production)
 $ bundle install --without production
 2) Установить gem-файлы только для продакшн группы соответствующей среды
 Открываем файл config/application.rb
-Комментируем: Bundler.require(*Rails.groups(:assets => %w(development test))) 
+Комментируем: Bundler.require(*Rails.groups(:assets => %w(development test)))
 Раскомментируем: Bundler.require(:default, :assets, Rails.env)
-</pre>
+{% endhighlight %}
 <p><strong>P.S. Если же это не помогает нужно установить libpq-dev:</strong></p>
-<pre>
+{% highlight javascript %}
 sudo apt-get install postgresql
 sudo apt-get install libpq-dev
 Затем ставим гем pg
@@ -43,5 +43,5 @@ $ sudo /etc/init.d/postgresql restart
 
 И напоследок для инициализации всех гемов вашим приложением:
 bundle install
-</pre>
+{% endhighlight %}
 <p>Вуаля!</p>

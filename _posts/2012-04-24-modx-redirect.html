@@ -299,21 +299,21 @@ comments:
 Хороший хостинг по умолчанию редиректит с Index.php на главную страницу сайта. Но когда это не работает, мы получаем дубль главной страницы, что не является хорошим фактом для продвижения вашего сайта.</p>
 <h3>Итак, <span style="color:red">варианты, которые не работают.</span></h3>
 <p>Для начала, я решил воспользоваться стандартным решением для редиректа с index.html на главную страницу сайта:</p>
-<pre>
+{% highlight javascript %}
 Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{THE_REQUEST} ^.*/index.php
 RewriteRule ^(.*)index.php$ http://site.ru/$1 [R=301,L]
-</pre>
+{% endhighlight %}
 <p>Но в результате получил неработающую админку - action_err_ns и "Доступ закрыт". Хотя сам редирект на сайте работал.<br />
 Затем я попробовал следующий вариант:</p>
-<pre>
+{% highlight javascript %}
 RewriteRule ^index.php$ / [R=301,L]
-</pre>
+{% endhighlight %}
 <p>И страницы сайта превратились из site.ru/about в site.ru/?q=about.</p>
 <h3>Повозившись и посоветовавшись пришел к <span style="color:green">работающему решению:</span></h3>
 <blockquote><p>Чтобы сделать редирект с /index, /index.html И /index.php на главную страницу сайта в MODx Revolution нужно прописать в .htaccess:</p></blockquote>
-<pre>
+{% highlight javascript %}
 Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /
@@ -333,9 +333,9 @@ DirectoryIndex index.php index.html
 RewriteCond %{THE_REQUEST} ^.*/index.php
 RewriteCond %{QUERY_STRING} ^$
 RewriteRule ^(.*)index.php$ http://site.ru/$1 [R=301,L]
-</pre>
+{% endhighlight %}
 <p><span style="color:red">+ для корректной работы необходимо добавить в папки assets, connectors, core, manager файл .htaccess с кодом:</span></p>
-<pre>
+{% highlight javascript %}
 RewriteEngine Off
 
 IndexIgnore */*
@@ -343,6 +343,6 @@ IndexIgnore */*
     Order Deny,Allow
     Deny from all
 </Files>
-</pre>
+{% endhighlight %}
 <p><strong>Всё, мы получили рабочие 301 редиректы и работающую админку. Надеюсь было интересно.</strong><br />
 <i>Если кто-нибудь знает варианты проще - прошу комментировать.</i></p>

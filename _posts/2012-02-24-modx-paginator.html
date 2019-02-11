@@ -10,29 +10,11 @@ author:
   url: ''
 author_login: z1m
 author_email: z1m@tut.by
-wordpress_id: 92
-wordpress_url: http://extazystas.ru/?p=92
 date: '2012-02-24 14:31:02 +0300'
 date_gmt: '2012-02-24 12:31:02 +0300'
 categories:
 - MODx
 tags: []
-comments:
-- id: 92
-  author: Anton
-  author_email: coinsart@yandex.ru
-  author_url: ''
-  date: '2012-06-20 01:24:07 +0300'
-  date_gmt: '2012-06-19 23:24:07 +0300'
-  content: Спасибо ! Все понятно
-- id: 208
-  author: gfewg
-  author_email: wegwe@maseil.ru
-  author_url: ''
-  date: '2015-05-28 10:14:51 +0300'
-  date_gmt: '2015-05-28 08:14:51 +0300'
-  content: а теперь найди косяк у себя........
----
 <h2 style="font-size: 1.5em;">Пагинация (разбиение на страницы) в MODx с помощью getPage</h2>
 <p>Часто бывает, когда на странице нужно добавить много материалов (вывести превью статей блога или описание товаров каталога), но не хочется создавать огромное полотно. Тогда возникает необходимость разбиения материала на страницы</p>
 <p>Если для вывода материалов вы пользуетесь сниппетами Ditto или getResources (дальше я буду упоминать только getResources), то хочу вас обрадовать:</p>
@@ -42,7 +24,8 @@ comments:
 <p><strong><!--more Читать дальше >>--></strong></p>
 <p><span id="more-73"></span></p>
 <p>- Открываем нужный нам шаблон, где мы выводим материал и меняем вызов сниппета getResources на:</p>
-<pre class="wp-code-highlight prettyprint">[[!getPage?
+{% highlight php %}
+[[!getPage?
     &amp;amp;elementClass=`modSnippet`
     &amp;amp;element=`getResources` /* по сути мы еще работаем с getRecources */
     &amp;amp;parents=`4,5,6` /* выводим все дочерние материалы из родителей с id=4,5,6 */
@@ -55,10 +38,12 @@ comments:
     &amp;amp;sortby=`menuindex` /* Сортируем материал по положению в меню */
     &amp;amp;includeTVs=`1`
     &amp;amp;processTVs=`1`
-]]</pre>
+]]
+{% endhighlight %}
 <p>Далее после этого добавляем саму пагинацию (я немного кастомизировал):</p>
-<pre class="wp-code-highlight prettyprint">
-[[!+page.nav:notempty=`</pre>
+{% highlight php %}
+[[!+page.nav:notempty=`
+{% endhighlight %}
 <div class="paging">
 <ul class="pageList">[[!+page.nav]]</ul>
 <p>&nbsp;</p>

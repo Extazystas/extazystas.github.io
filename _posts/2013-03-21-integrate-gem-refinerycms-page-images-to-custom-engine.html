@@ -23,18 +23,18 @@ comments: []
 <h4>There are few simple steps to integrate this gem in your engine</h4>
 <p>Sure, you need to install refinery with this gem for the begining<br />
 1) Create example engine</p>
-<pre>
+{% highlight javascript %}
 rails g refinery:engine article title:string description:text
-</pre>
+{% endhighlight %}
 <p>2) Open your article model and add following code:</p>
-<pre>
+{% highlight javascript %}
 has_many :image_pages, :as => :item, :order => 'position ASC'
 has_many :images, :through => :image_pages, :order => 'position ASC'
 has_many_page_images
-</pre>
+{% endhighlight %}
 <p>3) Open your engine admin _form partial and replace this code:<br />
 <!--more--></p>
-<pre>
+{% highlight javascript %}
 <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
@@ -54,9 +54,9 @@ has_many_page_images
     </div>
 
   </div>
-</pre>
+{% endhighlight %}
 <p><strong>with this:</strong></p>
-<pre>
+{% highlight javascript %}
   <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
@@ -78,10 +78,10 @@ has_many_page_images
       </div>
     </div>
   </div>
-</pre>
+{% endhighlight %}
 <p>After this step, restart rails server and your got it<br />
 4) Add images to your show (view) page:</p>
-<pre>
+{% highlight javascript %}
 <ul id='gallery' class="thumbs noscript">
       <% @article.images.each_with_index do |image, index| %>
         <li>
@@ -94,5 +94,5 @@ has_many_page_images
         </li>
      <% end %>
   </ul>
-</pre>
+{% endhighlight %}
 <p><strong>That's all!</strong></p>

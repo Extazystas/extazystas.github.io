@@ -20,7 +20,7 @@ tags: []
 comments: []
 ---
 <p>0) Add following code to your production.rb</p>
-<pre>
+{% highlight javascript %}
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'www.yourdomain.com' }
   config.action_mailer.delivery_method = :smtp
@@ -35,7 +35,7 @@ comments: []
     :enable_starttls_auto => true
   }
 
-</pre>
+{% endhighlight %}
 <p>1) Login to you gmail account<br />
 2) http://www.google.com/accounts/DisplayUnlockCaptcha and unlock access<br />
 Profit!</p>

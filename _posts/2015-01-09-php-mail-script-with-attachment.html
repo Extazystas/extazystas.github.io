@@ -19,7 +19,7 @@ categories:
 tags: []
 comments: []
 ---
-<pre>
+{% highlight javascript %}
 <?php
     if ((isset($_POST['contact_phone']) && !empty($_POST['contact_phone'])) || (isset($_POST['contact_email']) && !empty($_POST['contact_email']))){
       $tmpName = $_FILES['attachment']['tmp_name'];
@@ -68,4 +68,4 @@ comments: []
       mail('email@test.com', 'Новое сообщение из формы сайта', $message, $headers);
     }
   ?>
-</pre>
+{% endhighlight %}

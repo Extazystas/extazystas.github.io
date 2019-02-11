@@ -21,7 +21,7 @@ comments: []
 ---
 <h4>Recently, I have to update my ubuntu packages with a old good-known command 'sudo apt-get update' and I was fucked up</h4>
 <p><strong>I got message like this:</strong></p>
-<pre>
+{% highlight javascript %}
 W: Failed to fetch http://packages.medibuntu.org/dists/precise/Release.gpg  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
 
 W: Failed to fetch http://packages.medibuntu.org/dists/precise/free/binary-amd64/Packages  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
@@ -39,7 +39,7 @@ W: Failed to fetch http://packages.medibuntu.org/dists/precise/free/i18n/Transla
 W: Failed to fetch http://packages.medibuntu.org/dists/precise/non-free/i18n/Translation-en_US  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
 
 W: Failed to fetch http://packages.medibuntu.org/dists/precise/non-free/i18n/Translation-en  Something wicked happened resolving 'packages.medibuntu.org:http' (-5 - No address associated with hostname)
-</pre>
+{% endhighlight %}
 <p>Solution is very simple: The medibuntu repository has closed. You need to remove references to medibuntu from your sources.list file. If you don't want to edit the sources.list file itself, you can disable medibuntu in update manager</p>
 <p>Just open your update magaer ($ update-manager) and remove medibuntu repo in settings)</p>
 <p><strong>Profit!</strong></p>

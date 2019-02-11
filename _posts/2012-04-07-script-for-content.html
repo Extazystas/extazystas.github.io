@@ -42,15 +42,15 @@ comments:
 <p><strong><!--more Читать дальше >>--></strong></p>
 <p>1) Скрипт с запретом копирования и выделения текста. Этот скрипт запрещает выделять что-либо на сайте и соотв-но скопировать тоже не удастся (хотя если очень постараться, то знающие люди скопируют везде).</p>
 <p>&nbsp;</p>
-<pre>
+{% highlight javascript %}
 function preventSelection(element){
   var preventSelection = false;
 
   function addHandler(element, event, handler){
-    if (element.attachEvent) 
+    if (element.attachEvent)
       element.attachEvent('on' + event, handler);
-    else 
-      if (element.addEventListener) 
+    else
+      if (element.addEventListener)
         element.addEventListener(event, handler, false);
   }
   function removeSelection(){
@@ -66,11 +66,11 @@ function preventSelection(element){
       return;
 
     var key = event.keyCode || event.which;
-    if (event.ctrlKey && key == 'A'.charCodeAt(0))  
+    if (event.ctrlKey && key == 'A'.charCodeAt(0))
     {
       removeSelection();
 
-      if (event.preventDefault) 
+      if (event.preventDefault)
         event.preventDefault();
       else
         event.returnValue = false;
@@ -88,7 +88,7 @@ function preventSelection(element){
     preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i);
   });
 
- 
+
   addHandler(element, 'mouseup', function(){
     if (preventSelection)
       removeSelection();
@@ -96,17 +96,17 @@ function preventSelection(element){
   });
 
   // запрещаем ctrl+A
- 
+
   addHandler(element, 'keydown', killCtrlA);
   addHandler(element, 'keyup', killCtrlA);
 }
 
 preventSelection(document);
-</pre>
+{% endhighlight %}
 <p>2) Добавляем к скопированному тексту копирайт вида<br /> <i>Источник: http://extazystas.ru/<br />
 Все права защищены &copy; ExtazyStas.ru</i></p>
 <p><strong>Не забудьте обернуть данный код в тег 'script' на вашей странице!</strong></p>
-<pre>
+{% highlight javascript %}
 function addLink() {
 var body_element = document.getElementsByTagName('body')[0];
 var selection;
@@ -124,6 +124,6 @@ body_element.removeChild(newdiv);
 },0);
 }
 document.oncopy = addLink;
-</pre>
+{% endhighlight %}
 <p>Вот и всё! Пользуйтесь на здоровье, в большинстве случаев это поможет! Но никто не даст 100% гарантии от принтскрина+файнридера ;)</p>
 <p>&copy; <a href="http://extazystas.ru/" rel="author">extazystas.ru</a></p>

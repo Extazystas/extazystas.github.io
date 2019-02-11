@@ -23,15 +23,15 @@ comments: []
 ---
 <h5>Иногда, во время работы, нам интересен исходный код гема, нужно посмотреть на внутреннюю логику.</h5>
 <p>Для этого выполним команду (на примере гема devise):</p>
-<pre>
+{% highlight javascript %}
 bundle open devise
-</pre>
+{% endhighlight %}
 <p><strong>Если в консоли появилось сообщение о том, что нужно задать переменную EDITOR и ничего не открылось, делаем следующее:</strong></p>
-<pre>
+{% highlight javascript %}
 sublime ~/.bashrc
-</pre>
+{% endhighlight %}
 <p>В открывшемся файле добавляем эту переменную и имя редактора:</p>
-<pre>
+{% highlight javascript %}
 export EDITOR=sublime
-</pre>
+{% endhighlight %}
 <p>Profit!</p>
