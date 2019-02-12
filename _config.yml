@@ -33,7 +33,7 @@ plugins_dir:
 exclude:
   - Gemfile
   - Gemfile.lock
-paginate: 10
+paginate: 7
 paginate_path: '/page/:num/'
 # pagination:
 #   enabled: true

@@ -23,14 +23,14 @@ comments: []
 ---
 <p>You can embed as many videos as you want and it still be fast.</p>
 <p>HTML:</p>
-{% highlight javascript %}
+{% highlight html %}
   <div class="video_name">Test video</div>
    <div class="video" style="background-color:#ccc; width:420px; height:315px;">
       <a href="http://www.youtube.com/watch?v=VIDEO_CODE" class="youtube"></a>
   </div>
 {% endhighlight %}
 <p>JS:</p>
-{% highlight javascript %}
+{% highlight html %}
 <script type="text/javascript">
     function getYoutubeID(url) {
         var id = url.match("[\?&]v=([^&#]*)");

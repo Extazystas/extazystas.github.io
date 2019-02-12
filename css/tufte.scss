@@ -16,6 +16,16 @@ nav_exclude: true
 @import "../_sass/fonts";
 @import "../_sass/settings";
 @import "../_sass/syntax-highlighting";
+/*** Pygments ***/
+.highlight{
+	// background-color: #b4b4b4;
+	color: #93a1a1;
+	border: 1px solid #2d6472;
+    border-radius: 3px 3px 3px 3px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.highlight .c{color:#586e75 !important;font-style:italic !important}.highlight .cm{color:#586e75 !important;font-style:italic !important}.highlight .cp{color:#586e75 !important;font-style:italic !important}.highlight .c1{color:#586e75 !important;font-style:italic !important}.highlight .cs{color:#586e75 !important;font-weight:bold !important;font-style:italic !important}.highlight .err{color:#dc322f !important;background:none !important}.highlight .k{color:#cb4b16 !important}.highlight .o{color:#93a1a1 !important;font-weight:bold !important}.highlight .p{color:#93a1a1 !important}.highlight .ow{color:#2aa198 !important;font-weight:bold !important}.highlight .gd{color:#93a1a1 !important;background-color:#372c34 !important;display:inline-block}.highlight .gd .x{color:#93a1a1 !important;background-color:#4d2d33 !important;display:inline-block}.highlight .ge{color:#93a1a1 !important;font-style:italic !important}.highlight .gr{color:#aa0000}.highlight .gh{color:#586e75 !important}.highlight .gi{color:#93a1a1 !important;background-color:#1a412b !important;display:inline-block}.highlight .gi .x{color:#93a1a1 !important;background-color:#355720 !important;display:inline-block}.highlight .go{color:#888888}.highlight .gp{color:#555555}.highlight .gs{color:#93a1a1 !important;font-weight:bold !important}.highlight .gu{color:#6c71c4 !important}.highlight .gt{color:#aa0000}.highlight .kc{color:#859900 !important;font-weight:bold !important}.highlight .kd{color:#268bd2 !important}.highlight .kp{color:#cb4b16 !important;font-weight:bold !important}.highlight .kr{color:#d33682 !important;font-weight:bold !important}.highlight .kt{color:#2aa198 !important}.highlight .n{color:#268bd2 !important}.highlight .na{color:#268bd2 !important}.highlight .nb{color:#859900 !important}.highlight .nc{color:#d33682 !important}.highlight .no{color:#383837 !important}.highlight .ni{color:#800080}.highlight .nl{color:#859900 !important}.highlight .ne{color:#268bd2 !important;font-weight:bold !important}.highlight .nf{color:#268bd2 !important;font-weight:bold !important}.highlight .nn{color:#383837 !important}.highlight .nt{color:#268bd2 !important;font-weight:bold !important}.highlight .nx{color:#383837 !important}.highlight .bp{color:#999999}.highlight .vc{color:#008080}.highlight .vg{color:#268bd2 !important}.highlight .vi{color:#268bd2 !important}.highlight .nv{color:#268bd2 !important}.highlight .w{color:#bbbbbb}.highlight .mf{color:#2aa198 !important}.highlight .m{color:#2aa198 !important}.highlight .mh{color:#2aa198 !important}.highlight .mi{color:#2aa198 !important}.highlight .mo{color:#009999}.highlight .s{color:#2aa198 !important}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#2aa198 !important}.highlight .s2{color:#2aa198 !important}.highlight .se{color:#dc322f !important}.highlight .sh{color:#d14}.highlight .si{color:#268bd2 !important}.highlight .sx{color:#d14}.highlight .sr{color:#2aa198 !important}.highlight .s1{color:#2aa198 !important}.highlight .ss{color:#990073}.highlight .il{color:#009999}.highlight div .gd,.highlight div .gd .x,.highlight div .gi,.highlight div .gi .x{display:inline-block;width:100%}
 
 // Global Resets
 //
@@ -95,16 +105,16 @@ h1 { font-weight: 400;
      font-size: 2.5rem;
      line-height: 0.784; }
 
-h2 { font-style: italic;
-     font-weight: 400;
+h2 {
+     font-weight: 200;
      margin-top: 1.866666666666667rem;
      margin-bottom: 0;
-     font-size: 2.1rem;
+     font-size: 1.9rem;
      line-height: 0.933333333333333; }
 
-h3 { font-style: italic;
-     font-weight: 400;
-     font-size: 1.8rem;
+h3 {
+     font-weight: 200;
+     font-size: 1.6rem;
      margin-top: 2.1777777777777778rem;
      margin-bottom: 0;
      line-height: 1.08888888888889; }
@@ -145,7 +155,8 @@ blockquote footer { width: 45%;
 pre, pre code, p code, p pre code { font-family: $code-font;  // removed .code 'class' since code is an actual html tag
         font-size: 1.0rem;                   // also added p code, p pre code and pre selector to account for Markdown parsing
         line-height: 1.71428571;        // of triple backticks plus rationalized line-heights and margins
-        margin-top: 1.71428571rem; }
+        margin-top: 2px;
+        margin-bottom: 2px; }
 
 
 h1 code, h2 code, h3 code { font-size: 0.80em; } //left in for no real reason
@@ -276,7 +287,7 @@ div.table-wrapper { overflow-x: auto; } //changed all overflow values to 'auto' 
 @media screen and (max-width: 760px) { p, footer,div.mathblock { width: 90%; }
                                        pre code { width: 87.5%; }
                                        ul { width: 85%; }
-                                       figure { max-width: 90%; }
+                                       figure { max-width: 100%; }
                                        figcaption, figure.fullwidth figcaption { margin-right: 0%;
                                                                                  max-width: none; }
                                        blockquote p, blockquote footer {  width: 80%;
@@ -289,11 +300,11 @@ div.table-wrapper { overflow-x: auto; } //changed all overflow values to 'auto' 
 pre, { width: 90%;
            padding-left: 2.5%;
            overflow-x: auto; }
-pre code, p pre code { width: 90%;
+pre code, p pre code { width: 100%;
            padding-left: 0%;
            overflow-x: auto; }
 
-.fullwidth, li.listing div{ max-width: 90%; }
+.fullwidth, li.listing div{ max-width: 100%; }
 
 .full-width { .sidenote, .sidenote-number, .marginnote { display: none; } }
 
@@ -319,7 +330,7 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
                                                                    vertical-align: baseline;
                                                                    position: relative; }
                             label { cursor: pointer; }
-                            pre, pre code, p code, p pre code { width: 90%;
+                            pre, pre code, p code, p pre code { width: 100%;
                                        padding: 0; }
                             .table-caption { display: block;
                                              float: right;
@@ -395,6 +406,7 @@ ul.footer-links a {
 }
 .highlight {
   color: $contrast-color;
+  padding: 0 7px;
 }
 
 //change font color for credit links in footer
@@ -445,7 +457,7 @@ li.listing {
 }
 .post-content {
   background-color: #ebeae9;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.35);
 }
 
 
