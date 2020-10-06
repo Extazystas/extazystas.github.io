@@ -1,0 +1,91 @@
+---
+layout: post
+status: publish
+published: true
+title: Howto configure Github Actions to run Rubocop, Rspec and Capybara
+author:
+  display_name: Stanislav Knyazev
+  login: z1m
+  email: z1m@tut.by
+url: ''
+author_login: z1m
+author_email: z1m@tut.by
+date: '2020-10-01 21:00:00 +0300'
+date_gmt: '2020-10-01 21:00:00 +0300'
+categories:
+- github
+- RoR
+- ruby
+tags: []
+comments: []
+---
+Usually I'm working with CircleCI - it's good for private projects.
+But new feature from Github is free for public repo's so I've decided to give it a try.
+
+GitHub Actions makes it easy to automate all your software workflows - CI/CD. Build, test, and
+deploy your code right from GitHub.
+
+Here is my example of configuration for Ruby on Rails project to run Rubocop, RSpec unit and RSpec Capybara feature specs. I guess ENV part can be decoupled and moved outside, but for now I'm ok with it.
+
+{% highlight yaml %}
+name: Rspec and Rubocop CI
+
+on: [push,pull_request]
+
+jobs:
+  rubocop-test:
+    runs-on: ubuntu-latest
+    name: Rubocop
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install Rubocop gem
+        run: gem install rubocop
+      - name: Run Rubocop
+        run: rubocop app spec # I want specify only `app` and `spec` folders to inspect
+  rspec-test:
+    name: RSpec
+    needs: rubocop-test
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11.6
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install PostgreSQL
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Create local database
+        env:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rails webpacker:install
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+      - name: Build and test with rspec
+        env:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+        run: bundle exec rspec spec/models spec/forms spec/requests # run only unit specs here
+      - name: setup-chromedriver
+        uses: nanasess/setup-chromedriver@v1.0.1
+      - name: Run capybara
+        env:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+        run: bundle exec rspec spec/features # run only feature specs here
+{% endhighlight %}
+
+Happy coding!
